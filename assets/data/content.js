@@ -13,12 +13,11 @@ window.siteContent = {
   // === BIO & LINKS ===
   bio: {
     name: "Jaweria Qaiser",
-    short: "Researcher, artist, and educator exploring intersections of art & technology.",
-    email: "hello [at] example [dot] edu", // Will be obfuscated in UI
-    orcid: "0000-0000-0000-0000",
-    googleScholar: "https://scholar.google.com/",
-    github: "https://github.com/jaweriaqaiser",
-    instagram: "https://instagram.com/",
+    short: "PhD candidate",
+    email: "jaweria [dot] qaiser [at] mail [dot] utoronto [dot] ca", // Will be obfuscated in UI
+    orcid: "0000-0003-2820-3021",
+    googleScholar: "https://scholar.google.com/citations?user=OHEQbFgAAAAJ&hl=en",
+    osf: "https://github.com/jaweriaqaiser",
   },
 
   // === CV DATA ===
@@ -27,25 +26,17 @@ window.siteContent = {
       section: "Education",
       items: [
         {
-          title: "PhD in Computational Arts",
-          institution: "University of Imaginary Studies",
-          year: "2025",
-          details: "Thesis: 'Artful Machines: Generative Aesthetics and Algorithmic Expression'."
+          title: "PhD Candidate in Psychology",
+          institution: "University of Toronto",
+          year: "2021-Present",
+          details: "Thesis: 'Reading Group Emotions'."
         },
         {
-          title: "MFA in Fine Arts",
-          institution: "Dreamland Art Institute",
-          year: "2021"
-        }
-      ]
-    },
-    {
-      section: "Appointments",
-      items: [
-        {
-          title: "Assistant Professor",
-          institution: "Department of Creative Technology, Utopia University",
-          year: "2026–present"
+          title: "BSc in Psychology",
+          institution: "University of Toronto",
+          year: "2017-2021",
+          details: "Specialist in Neurobiology | Minor in Biology",
+          details: "Graduated with Distinction"
         }
       ]
     },
@@ -53,9 +44,9 @@ window.siteContent = {
       section: "Teaching",
       items: [
         {
-          title: "Generative Art & Code",
-          institution: "Utopia University",
-          year: "2026–present"
+          title: "XX",
+          institution: "XX",
+          year: "XX"
         }
       ]
     },
@@ -63,9 +54,9 @@ window.siteContent = {
       section: "Grants & Awards",
       items: [
         {
-          title: "Young Innovators Grant",
-          institution: "Art & Tech Foundation",
-          year: "2024"
+          title: "XX",
+          institution: "XX",
+          year: "XX"
         }
       ]
     },
@@ -74,8 +65,8 @@ window.siteContent = {
       items: [
         {
           title: "Peer Reviewer",
-          institution: "Journal of Digital Arts",
-          year: "2023–"
+          institution: "XX",
+          year: "XX"
         }
       ]
     }
@@ -85,56 +76,36 @@ window.siteContent = {
   publications: [
     {
       id: "pub1",
-      title: "Quirky Networks: Algorithmic Play in Computational Art",
-      authors: "J. Qaiser, A. Smith",
-      year: 2025,
-      venue: "International Conference on Generative Arts",
-      doi: "10.0000/ga2025.42",
-      url: "https://doi.org/10.0000/ga2025.42",
-      abstract: "This paper explores playful algorithmic forms in generative art...",
-      tags: ["conference", "generative art"],
-      bibtex: `@inproceedings{qaiser2025quirky,
-  title={Quirky Networks: Algorithmic Play in Computational Art},
-  author={Qaiser, Jaweria and Smith, Alex},
-  booktitle={International Conference on Generative Arts},
-  year={2025},
-  doi={10.0000/ga2025.42}
+      title: "Shared Hearts and Minds: Physiological Synchrony During Empathy",
+      authors: "Qaiser, J., Leonhardt, N., Le, B. M., Gordon, A. M., Impett, E. A., & Stellar, J. E.",
+      year: 2023,
+      venue: "Affective Science",
+      doi: "10.1007/s42761-023-00210-4",
+      url: "https://link.springer.com/article/10.1007/s42761-023-00210-4",
+      abstract: "Empathy is a multidimensional construct that includes changes in cognitive, affective, and physiological processes. However, the physiological processes that contribute to empathic responding have received far less empirical attention. Here, we investigated whether physiological synchrony emerged during an empathy-inducing activity in which individuals disclosed a time of suffering while their romantic partner listened and responded (N = 111 couples). Further, we examined the extent to which trait and state measures of cognitive and affective empathy were associated with each other and with physiological synchrony during this activity. We found evidence for physiological synchrony in skin conductance reactivity and also in interbeat interval reactivity, though only when disclosers were women, but not for respiratory sinus arrhythmia reactivity. Physiological synchrony was not consistently associated with other well-established trait and state measures of empathy. These findings identify the nuanced role of physiological synchrony in empathic responding to others’ suffering.",
+      tags: ["publication", "empathy", "synchrony", "physiology", "relationship", "heart rate", "respiratory sinus arrhythmia", "skin conductance level", "RSA", "SCL", "HR", "IBI"],
+      bibtex: `article{qaiser2023shared,
+  title={Shared hearts and minds: Physiological synchrony during empathy},
+  author={Qaiser, Jaweria and Leonhardt, Nathan D and Le, Bonnie M and Gordon, Amie M and Impett, Emily A and Stellar, Jennifer E},
+  journal={Affective Science},
+  volume={4},
+  number={4},
+  pages={711--721},
+  year={2023},
+  publisher={Springer}
 }`
     },
     {
       id: "pub2",
-      title: "Machine Aesthetics in Digital Painting",
-      authors: "J. Qaiser",
+      title: "XX",
+      authors: "XX",
       year: 2024,
-      venue: "Journal of Digital Arts",
-      doi: "10.0000/jda.2024.17",
-      url: "https://doi.org/10.0000/jda.2024.17",
-      abstract: "A study of AI-driven styles and their influence on contemporary painting...",
-      tags: ["journal", "digital painting"],
-      bibtex: `@article{qaiser2024machine,
-  title={Machine Aesthetics in Digital Painting},
-  author={Qaiser, Jaweria},
-  journal={Journal of Digital Arts},
-  year={2024},
-  doi={10.0000/jda.2024.17}
-}`
-    },
-    {
-      id: "pub3",
-      title: "Teaching Code as Creative Practice",
-      authors: "J. Qaiser, M. Doe",
-      year: 2023,
-      venue: "Art Education Review",
-      doi: "",
-      url: "",
-      abstract: "Examines pedagogical strategies for integrating coding into creative arts education...",
-      tags: ["teaching", "art education"],
-      bibtex: `@article{qaiser2023teaching,
-  title={Teaching Code as Creative Practice},
-  author={Qaiser, Jaweria and Doe, Mary},
-  journal={Art Education Review},
-  year={2023}
-}`
+      venue: "XX",
+      doi: "XX",
+      url: "XX",
+      abstract: "XX",
+      tags: ["XX", "XX"],
+      bibtex: "XX"
     }
   ],
 
@@ -160,50 +131,6 @@ window.siteContent = {
       thumb: "thumb_nightgrid.jpg",
       image: "nightgrid_full.jpg",
       caption: "A play of order and chaos in color.",
-      download: ""
-    },
-    {
-      id: "art3",
-      title: "Print Experiment #7",
-      year: 2023,
-      medium: "Monoprint",
-      category: "print",
-      thumb: "thumb_print7.jpg",
-      image: "print7_full.jpg",
-      caption: "One-of-a-kind generative print.",
-      download: ""
-    },
-    {
-      id: "art4",
-      title: "Fluid Networks",
-      year: 2025,
-      medium: "Mixed media",
-      category: "mixed",
-      thumb: "thumb_fluid.jpg",
-      image: "fluid_full.jpg",
-      caption: "Exploring network aesthetics with ink and code.",
-      download: "fluid_full.jpg"
-    },
-    {
-      id: "art5",
-      title: "Sunrise Render",
-      year: 2024,
-      medium: "Digital print",
-      category: "digital",
-      thumb: "thumb_sunrise.jpg",
-      image: "sunrise_full.jpg",
-      caption: "Color study using generative code.",
-      download: ""
-    },
-    {
-      id: "art6",
-      title: "Paper Garden",
-      year: 2021,
-      medium: "Collage",
-      category: "mixed",
-      thumb: "thumb_papergarden.jpg",
-      image: "papergarden_full.jpg",
-      caption: "Layers and textures from recycled materials.",
       download: ""
     }
   ]
