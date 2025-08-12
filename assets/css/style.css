@@ -1,0 +1,549 @@
+/*
+assets/css/style.css
+--------------------
+Purpose: Main site stylesheet for layout, typography, colors, and simple animations.
+Edit tips:
+  - To change highlight color, font, or background, edit CSS variables below.
+  - Major sections are commented for easier navigation.
+  - See README.md for more tips, including adding dark mode colors.
+*/
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --accent: #4c84ff;     /* Main accent color (edit me!) */
+  --accent-2: #ff5a80;   /* Secondary accent (edit me!) */
+  --bg: #f8f8f6;         /* Background */
+  --text: #202124;       /* Main text */
+  --text-light: #767676; /* Muted text */
+  --rail-bg: #f0f3fa;    /* Build-up rail background */
+  --rail-border: #e2e6ef;
+  --border-radius: 13px; /* Slightly quirky roundness */
+  --font-stack: "Aptos", "Inter", system-ui, sans-serif;
+  --header-height: 64px;
+  --transition: 0.2s cubic-bezier(.5,1.5,.5,1);
+}
+
+/* ===== DARK MODE ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #191a1c;
+    --text: #ececec;
+    --text-light: #b0b0b0;
+    --rail-bg: #23273a;
+    --rail-border: #2d3042;
+  }
+}
+
+/* ===== RESET & BASE ===== */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-stack);
+  scroll-behavior: smooth;
+}
+*, *:before, *:after { box-sizing: inherit; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ===== LAYOUT ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  box-shadow: 0 1px 0 var(--rail-border);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+}
+.site-nav {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 1.5rem;
+}
+.site-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  margin-right: 2rem;
+}
+.site-nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+.site-nav a:hover, .site-nav a:focus {
+  color: var(--accent);
+  outline: none;
+}
+#darkToggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  margin-left: 1.5rem;
+  cursor: pointer;
+  color: var(--accent);
+  border-radius: var(--border-radius);
+  transition: background var(--transition);
+}
+#darkToggle:focus {
+  background: var(--rail-bg);
+}
+
+/* ===== MAIN LAYOUT ===== */
+.site-main {
+  display: flex;
+  flex-direction: row;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  gap: 2rem;
+}
+.build-up-rail {
+  /* Sticky build-up column (desktop) */
+  position: sticky;
+  top: calc(var(--header-height) + 2rem);
+  align-self: flex-start;
+  width: 170px;
+  min-width: 120px;
+  height: calc(100vh - var(--header-height) - 3rem);
+  background: var(--rail-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--rail-border);
+  margin-right: 2rem;
+  padding: 1.2rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: background var(--transition);
+}
+.build-up-rail[hidden] { display: none; }
+
+.main-content {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  margin-bottom: 3.5rem;
+  padding-bottom: 1.8rem;
+  border-bottom: 1px solid var(--rail-border);
+}
+.section:last-child { border-bottom: none; }
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.1rem;
+  color: var(--accent);
+  letter-spacing: 0.01em;
+}
+
+.bio-section h1 {
+  margin-top: 0.7rem;
+  margin-bottom: 0.4rem;
+  font-size: 2.4rem;
+  color: var(--text);
+}
+.bio-summary {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 0.7rem;
+}
+.bio-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+.bio-links a {
+  color: var(--accent);
+  font-size: 1.04rem;
+  text-decoration: none;
+  border-bottom: 1.5px dotted var(--accent-2);
+  transition: color var(--transition), border var(--transition);
+}
+.bio-links a:hover,
+.bio-links a:focus {
+  color: var(--accent-2);
+  border-bottom: 2px solid var(--accent-2);
+  outline: none;
+}
+
+/* ===== CV ===== */
+.cv-download {
+  display: inline-block;
+  margin-bottom: 1.2rem;
+  font-size: 1.03rem;
+  color: var(--accent);
+  border: 1.5px solid var(--accent-2);
+  border-radius: var(--border-radius);
+  padding: 0.4em 1.1em;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+.cv-download:hover, .cv-download:focus {
+  background: var(--accent-2);
+  color: #fff;
+  outline: none;
+}
+#cvContent { margin-top: 1.2rem; }
+.cv-section .cv-group {
+  margin-bottom: 1.3rem;
+}
+.cv-section .cv-group h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+.cv-section ul {
+  margin: 0.2rem 0 0.7rem 1.1rem;
+  padding: 0;
+}
+
+/* ===== PUBLICATIONS ===== */
+.pub-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 0.9rem;
+  align-items: center;
+}
+.pub-filters input,
+.pub-filters select {
+  border: 1px solid var(--rail-border);
+  border-radius: var(--border-radius);
+  background: #fff;
+  color: var(--text);
+  padding: 0.36em 0.8em;
+  font-size: 1rem;
+}
+.pub-filters button {
+  background: var(--accent-2);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.38em 1.1em;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.pub-filters button:hover, .pub-filters button:focus {
+  background: var(--accent);
+  outline: none;
+}
+#publicationsList {
+  margin-top: 0.6rem;
+}
+.publication-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.publication-year {
+  margin: 1.4em 0 0.5em;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.07rem;
+}
+.publication-item {
+  margin-bottom: 1.2em;
+  background: #fff;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--rail-border);
+  padding: 0.9em 1.1em 0.7em 1.1em;
+  box-shadow: 0 2px 7px 0 rgba(0,0,0,0.02);
+}
+.publication-title {
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin: 0 0 0.13em 0;
+}
+.publication-meta {
+  font-size: 0.99rem;
+  color: var(--text-light);
+}
+.publication-links a {
+  margin-right: 1.15em;
+  color: var(--accent-2);
+  font-size: 0.97em;
+  text-decoration: none;
+}
+.publication-links a:hover, .publication-links a:focus {
+  text-decoration: underline;
+  color: var(--accent);
+  outline: none;
+}
+.publication-abstract-toggle {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 1em;
+  margin: 0.4em 0 0.2em 0;
+  padding: 0;
+  text-decoration: underline;
+}
+.publication-abstract {
+  background: var(--rail-bg);
+  border-radius: var(--border-radius);
+  padding: 0.7em 1em;
+  margin-top: 0.5em;
+  font-size: 0.98em;
+  display: none;
+}
+
+/* ===== PORTFOLIO ===== */
+.portfolio-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+.portfolio-filters button {
+  background: var(--rail-bg);
+  color: var(--accent);
+  border: 1.5px solid var(--accent-2);
+  border-radius: var(--border-radius);
+  padding: 0.37em 1.1em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.portfolio-filters button.active,
+.portfolio-filters button:hover,
+.portfolio-filters button:focus {
+  background: var(--accent-2);
+  color: #fff;
+  outline: none;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.3rem;
+}
+.portfolio-item {
+  background: #fff;
+  border: 1.5px solid var(--rail-border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.portfolio-item:hover,
+.portfolio-item:focus {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 6px 16px 0 rgba(76,132,255,0.13);
+  outline: none;
+}
+.portfolio-thumb {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-bottom: 1px solid var(--rail-border);
+  background: var(--rail-bg);
+}
+.portfolio-meta {
+  padding: 0.5em 0.9em 0.7em 0.9em;
+  font-size: 0.98em;
+}
+.portfolio-meta .title {
+  font-weight: 600;
+  color: var(--accent);
+}
+.portfolio-meta .year,
+.portfolio-meta .medium {
+  color: var(--text-light);
+  font-size: 0.95em;
+  margin-left: 0.7em;
+}
+
+/* ===== LIGHTBOX ===== */
+.portfolio-lightbox {
+  position: fixed;
+  z-index: 300;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(40,48,56,0.93);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 2vw;
+  transition: opacity 0.2s;
+}
+.portfolio-lightbox[hidden] { display: none; }
+.portfolio-lightbox img {
+  max-width: 90vw;
+  max-height: 65vh;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.2rem;
+  background: #fff;
+}
+#lightboxClose {
+  position: absolute;
+  top: 2.5vh; right: 3vw;
+  font-size: 2.1rem;
+  background: none;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: background var(--transition);
+  padding: 0.11em 0.39em;
+}
+#lightboxClose:focus { background: var(--accent-2); outline: none; }
+#lightboxCaption {
+  color: #fff;
+  font-size: 1.18rem;
+  margin-bottom: 0.7rem;
+  text-align: center;
+}
+#lightboxDownload {
+  color: var(--accent);
+  text-decoration: underline;
+  margin: 0.9em auto 0 auto;
+  display: inline-block;
+  background: none;
+  border: none;
+  font-size: 1rem;
+}
+
+/* ===== CONTACT ===== */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5em 0 0 0;
+  font-size: 1.07em;
+}
+.contact-list a {
+  color: var(--accent-2);
+  text-decoration: none;
+}
+.contact-list a:hover, .contact-list a:focus {
+  text-decoration: underline;
+  color: var(--accent);
+  outline: none;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  text-align: center;
+  padding: 2.2rem 0 1.7rem 0;
+  font-size: 1.05em;
+  color: var(--text-light);
+  background: none;
+}
+
+/* ===== SCROLL-TRIGGER ANIMATIONS ===== */
+/* .rail-item is added for each section in the build-up rail */
+.rail-item {
+  opacity: 0;
+  transform: translateY(25px) scale(0.97);
+  background: #fff;
+  border-radius: var(--border-radius);
+  border: 1.5px solid var(--accent-2);
+  margin-bottom: 0.7em;
+  min-height: 54px;
+  min-width: 54px;
+  max-width: 120px;
+  max-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.1rem;
+  color: var(--accent-2);
+  box-shadow: 0 3px 12px 0 rgba(76,132,255,0.07);
+  transition: opacity 0.7s cubic-bezier(.5,1.5,.5,1), transform 0.7s cubic-bezier(.5,1.5,.5,1);
+}
+.rail-item.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1.01);
+}
+
+/* Reduced motion: instant reveal */
+@media (prefers-reduced-motion: reduce) {
+  *, *:before, *:after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .rail-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .site-main {
+    flex-direction: column;
+    gap: 0;
+    max-width: 97vw;
+    padding: 0 0.5rem;
+  }
+  .build-up-rail {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .site-header, .site-nav {
+    height: 49px;
+    padding: 0 0.6rem;
+  }
+  .site-main {
+    margin: 0.6rem auto;
+    padding: 0 0.1rem;
+  }
+  .section {
+    margin-bottom: 2.2rem;
+    padding-bottom: 1rem;
+  }
+  .bio-section h1, .section h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 11pt !important;
+  }
+  .site-header, .site-footer, .bio-links, .portfolio-section, .build-up-rail, #darkToggle, .pub-filters, #portfolioFilters, #portfolioLightbox {
+    display: none !important;
+  }
+  .section, .main-content {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .cv-download {
+    display: none !important;
+  }
+  #cvContent {
+    margin-top: 0;
+  }
+}
