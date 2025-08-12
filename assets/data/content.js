@@ -17,7 +17,7 @@ window.siteContent = {
     email: "jaweria [dot] qaiser [at] mail [dot] utoronto [dot] ca", // Will be obfuscated in UI
     orcid: "0000-0003-2820-3021",
     googleScholar: "https://scholar.google.com/citations?user=OHEQbFgAAAAJ&hl=en",
-    osf: "osf.io/ufx5d",
+    osf: "https://osf.io/ufx5d",
   },
 
   // === CV DATA ===
