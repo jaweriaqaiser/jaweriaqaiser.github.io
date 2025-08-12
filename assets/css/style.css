@@ -12,7 +12,7 @@ Edit tips:
 :root {
   --accent: #4c84ff;     /* Main accent color (edit me!) */
   --accent-2: #ff5a80;   /* Secondary accent (edit me!) */
-  --bg: #fefef4;         /* Background */
+  --bg: #fffffa;         /* Background */
   --text: #202124;       /* Main text */
   --text-light: #767676; /* Muted text */
   --rail-bg: #f0f3fa;    /* Build-up rail background */
