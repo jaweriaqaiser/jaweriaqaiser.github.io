@@ -2,7 +2,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Inter', Arial, sans-serif;
-  background: #fafbfc;
+  background: #fffffa;
   color: #222;
   line-height: 1.65;
   min-height: 100vh;
@@ -14,7 +14,7 @@ a:hover { text-decoration: underline; }
 .site-header {
   position: sticky;
   top: 0;
-  background: #fff;
+  background: #fffffa;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   z-index: 100;
 }
@@ -46,13 +46,6 @@ a:hover { text-decoration: underline; }
 .site-nav li a:hover,
 .site-nav li a:focus {
   color: var(--accent, #4c84ff);
-}
-#darkToggle {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  margin-left: 1.5rem;
 }
 
 /* Main sections */
