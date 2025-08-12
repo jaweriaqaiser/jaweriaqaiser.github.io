@@ -25,6 +25,43 @@ document.addEventListener('DOMContentLoaded', function () {
   obfuscateEmail(data.bio.email);
 });
 
+/* ==== JavaScript for Scroll-triggered Animation for heading (Jaweria Qaiser) ==== */
+document.addEventListener('DOMContentLoaded', function () {
+  setupFloatingSiteTitle();
+  // ...your other init code
+});
+
+function setupFloatingSiteTitle() {
+  const siteTitle = document.getElementById('floatingSiteTitle');
+  const header = document.querySelector('.site-header') || document.getElementById('header');
+  if (!siteTitle || !header) return;
+
+  // How far to scroll before title reaches header (in px)
+  const scrollDistance = header.offsetTop - 16;
+
+  function updateTitlePosition() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    // 0 (at bottom) --> scrollDistance (at header)
+    let progress = Math.min(scrollY / scrollDistance, 1);
+
+    // Interpolate Y position: from bottom:8vh up to header
+    // Let's move from "bottom:8vh" to "top: header.offsetTop"
+    // We'll use translateY for smoothness: 0px to -(window.innerHeight - header.offsetTop - 8vh)
+    const startY = 0;
+    const endY = -1 * (window.innerHeight - header.offsetTop - window.innerHeight * 0.08);
+    // Compute current Y
+    const currentY = startY + (endY - startY) * progress;
+
+    siteTitle.style.transform = `translateX(-50%) translateY(${currentY}px)`;
+    // Fade out near the top
+    siteTitle.style.opacity = (progress < 0.95) ? 1 : 0;
+  }
+
+  updateTitlePosition();
+  window.addEventListener('scroll', updateTitlePosition, { passive: true });
+  window.addEventListener('resize', updateTitlePosition);
+}
+
 /* ==== BIO ==== */
 function renderBio(bio) {
   // Fill in main bio and contact links.
