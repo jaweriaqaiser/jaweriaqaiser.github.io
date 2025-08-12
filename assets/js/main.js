@@ -31,8 +31,7 @@ function renderBio(bio) {
   document.querySelectorAll('.bio-summary').forEach(e => e.textContent = bio.short);
   document.querySelectorAll('.bio-links [title="ORCID"]').forEach(e => e.href = `https://orcid.org/${bio.orcid}`);
   document.querySelectorAll('.bio-links [title="Google Scholar"]').forEach(e => e.href = bio.googleScholar);
-  document.querySelectorAll('.bio-links [title="GitHub"]').forEach(e => e.href = bio.github);
-  document.querySelectorAll('.bio-links [title="Instagram"]').forEach(e => e.href = bio.instagram);
+  document.querySelectorAll('.bio-links [title="OSF"]').forEach(e => e.href = bio.osf);
   // Contact email in #contact section
   document.getElementById('contactEmail').textContent = bio.email.replace(/\s?\[at\]\s?/i, " [at] ").replace(/\s?\[dot\]\s?/ig, " [dot] ");
 }
