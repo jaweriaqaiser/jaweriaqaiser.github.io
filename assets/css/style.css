@@ -11,13 +11,6 @@ a { color: var(--accent, #99c4e4); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* Top navigation bar */
-.site-header {
-  position: sticky;
-  top: 0;
-  background: #fffffa;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  z-index: 100;
-}
 .site-nav {
   display: flex;
   justify-content: space-between;
@@ -26,26 +19,39 @@ a:hover { text-decoration: underline; }
   margin: 0 auto;
   padding: 1rem 1.5rem;
 }
-.site-logo {
-  font-size: 1.4rem;
-  font-weight: bold;
-  letter-spacing: 0.03em;
-  color: var(--accent, #99c4e4);
-}
-.site-nav ul {
+
+.nav-left, .nav-right {
   display: flex;
   gap: 1.5rem;
-  list-style: none;
 }
-.site-nav li a {
-  font-size: 1rem;
-  color: #222;
-  font-weight: 500;
-  transition: color 0.2s;
+
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
-.site-nav li a:hover,
-.site-nav li a:focus {
+
+.site-logo {
+  font-family: 'Dancing Script', 'Pacifico', cursive, serif, sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
   color: var(--accent, #99c4e4);
+  letter-spacing: 0.04em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+  .site-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+  }
+  .nav-left, .nav-right {
+    gap: 0.7rem;
+  }
+  .site-logo {
+    font-size: 1.5rem;
+  }
 }
 
 /* Main sections */
