@@ -23,17 +23,6 @@ Edit tips:
   --transition: 0.2s cubic-bezier(.5,1.5,.5,1);
 }
 
-/* ===== DARK MODE ===== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #191a1c;
-    --text: #ececec;
-    --text-light: #b0b0b0;
-    --rail-bg: #23273a;
-    --rail-border: #2d3042;
-  }
-}
-
 /* ===== RESET & BASE ===== */
 html {
   box-sizing: border-box;
@@ -62,6 +51,38 @@ body {
   display: flex;
   align-items: center;
 }
+
+.floating-site-title {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  bottom: 8vh;
+  z-index: 999;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--accent);
+  pointer-events: none;
+  opacity: 1;
+  transition:
+    transform 0.7s cubic-bezier(.5,1.5,.5,1),
+    opacity 0.5s cubic-bezier(.5,1.5,.5,1);
+  /* Optional: text-shadow for pop */
+  text-shadow: 0 2px 8px rgba(76,132,255,0.14);
+}
+
+/* When at top (scrolled up), hide title */
+.floating-site-title.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Optional: reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  .floating-site-title {
+    transition: none !important;
+  }
+}
+
 .site-nav {
   width: 100%;
   max-width: 1100px;
