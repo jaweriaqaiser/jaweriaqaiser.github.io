@@ -60,6 +60,26 @@ main {
   margin: 2.5rem auto 2rem auto;
   padding: 0 1rem;
 }
+.hero-image-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: #f7e4d6; /* <-- change to any color you like */
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero-image {
+  display: block;
+  width: 100vw;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto;
+}
 .section {
   margin-bottom: 3.5rem;
   opacity: 0;
