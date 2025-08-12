@@ -1,0 +1,128 @@
+<!--
+index.html
+-----------
+Purpose: Main single-page portfolio site for academic + art profile.
+Edit tips:
+  - Update sections as marked below.
+  - Content (CV, publications, art) is loaded from assets/data/content.js.
+  - To change colors or fonts, edit CSS variables in assets/css/style.css.
+  - See README.md for full editing & deployment instructions.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jaweria Qaiser – Portfolio & CV</title>
+  <meta name="description" content="Academic and art portfolio for Jaweria Qaiser: CV, publications, and artwork.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO & Social -->
+  <meta property="og:title" content="Jaweria Qaiser – Portfolio & CV">
+  <meta property="og:description" content="Academic and art portfolio: CV, publications, and artwork.">
+  <meta property="og:image" content="assets/images/og-image.png">
+  <meta property="og:type" content="website">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.ico">
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Lightbox CSS (optional, see README if removing) -->
+  <!-- <link rel="stylesheet" href="assets/css/lightbox.css"> -->
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header id="header" class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <!-- Logo/Name -->
+      <a href="#home" class="site-logo">JQ</a>
+      <ul>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="darkToggle" aria-label="Toggle dark mode">🌓</button>
+    </nav>
+  </header>
+  <main id="main" class="site-main">
+    <!-- Sticky Build-Up Rail -->
+    <aside id="buildUpRail" class="build-up-rail" aria-hidden="true">
+      <!-- Build-up visual elements are injected here via JS -->
+    </aside>
+    <!-- Main Content -->
+    <section class="main-content">
+      <!-- HOME / BIO -->
+      <section id="home" class="section bio-section">
+        <!-- Update bio text below -->
+        <h1>Jaweria Qaiser</h1>
+        <p class="bio-summary">
+          <!-- SHORT BIO: Edit below -->
+          Researcher, artist, and educator exploring intersections of art & technology. Welcome to my academic and creative portfolio.
+        </p>
+        <!-- Contact links -->
+        <div class="bio-links">
+          <a href="https://orcid.org/0000-0000-0000-0000" rel="noopener" title="ORCID" target="_blank">ORCID</a>
+          <a href="https://scholar.google.com/" rel="noopener" title="Google Scholar" target="_blank">Scholar</a>
+          <a href="mailto:email (obfuscated, see JS)" id="emailLink" title="Email">Email</a>
+          <a href="https://github.com/jaweriaqaiser" rel="noopener" title="GitHub" target="_blank">GitHub</a>
+          <a href="https://instagram.com/" rel="noopener" title="Instagram" target="_blank">Instagram</a>
+        </div>
+      </section>
+      <!-- CV -->
+      <section id="cv" class="section cv-section">
+        <h2>Curriculum Vitae</h2>
+        <a class="cv-download" href="cv.pdf" download>Download CV (PDF)</a>
+        <!-- CV content is injected by JS from content.js -->
+        <div id="cvContent"></div>
+      </section>
+      <!-- PUBLICATIONS -->
+      <section id="publications" class="section publications-section">
+        <h2>Publications</h2>
+        <!-- Filters/Search UI -->
+        <form id="pubFilters" class="pub-filters" aria-label="Filter publications">
+          <input type="text" id="pubSearch" placeholder="Search..." aria-label="Search publications">
+          <select id="pubYearFilter" aria-label="Filter by year"><option value="">All years</option></select>
+          <select id="pubTypeFilter" aria-label="Filter by type"><option value="">All types</option></select>
+          <button type="button" id="downloadBib" title="Download BibTeX" aria-label="Download BibTeX">BibTeX</button>
+        </form>
+        <!-- Publications content is injected by JS from content.js -->
+        <div id="publicationsList"></div>
+      </section>
+      <!-- PORTFOLIO -->
+      <section id="portfolio" class="section portfolio-section">
+        <h2>Art Portfolio</h2>
+        <!-- Filter categories: populated by JS -->
+        <div id="portfolioFilters" class="portfolio-filters"></div>
+        <!-- Portfolio grid is injected by JS from content.js -->
+        <div id="portfolioGrid" class="portfolio-grid"></div>
+        <!-- Lightbox is handled via JS -->
+        <div id="portfolioLightbox" class="portfolio-lightbox" aria-modal="true" tabindex="-1" hidden>
+          <button id="lightboxClose" aria-label="Close">&times;</button>
+          <img id="lightboxImage" src="" alt="">
+          <div id="lightboxCaption"></div>
+          <a id="lightboxDownload" href="#" download hidden>Download hi-res</a>
+        </div>
+      </section>
+      <!-- CONTACT -->
+      <section id="contact" class="section contact-section">
+        <h2>Contact</h2>
+        <ul class="contact-list">
+          <li>Email: <span id="contactEmail">(see JS for obfuscation)</span></li>
+          <li>ORCID: <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener">0000-0000-0000-0000</a></li>
+          <li>Google Scholar: <a href="https://scholar.google.com/" target="_blank" rel="noopener">Profile</a></li>
+          <li>GitHub: <a href="https://github.com/jaweriaqaiser" target="_blank" rel="noopener">@jaweriaqaiser</a></li>
+          <li>Instagram: <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </section>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2025 Jaweria Qaiser</span>
+    <span>•</span>
+    <a href="https://github.com/jaweriaqaiser/jaweriaqaiser.github.io">Source on GitHub</a>
+    <span>•</span>
+    <a href="LICENSE">MIT License</a>
+  </footer>
+  <!-- Main JS (loads content, handles scroll-trigger, lightbox, etc.) -->
+  <script src="assets/data/content.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
