@@ -7,7 +7,7 @@ body {
   line-height: 1.65;
   min-height: 100vh;
 }
-a { color: var(--accent, #4c84ff); text-decoration: none; }
+a { color: var(--accent, #99c4e4); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* Top navigation bar */
@@ -30,7 +30,7 @@ a:hover { text-decoration: underline; }
   font-size: 1.4rem;
   font-weight: bold;
   letter-spacing: 0.03em;
-  color: var(--accent, #4c84ff);
+  color: var(--accent, #99c4e4);
 }
 .site-nav ul {
   display: flex;
@@ -45,7 +45,7 @@ a:hover { text-decoration: underline; }
 }
 .site-nav li a:hover,
 .site-nav li a:focus {
-  color: var(--accent, #4c84ff);
+  color: var(--accent, #99c4e4);
 }
 
 /* Main sections */
@@ -69,7 +69,7 @@ main {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--accent, #4c84ff);
+  color: var(--accent, #99c4e4);
 }
 .section p, .section ul {
   font-size: 1.08rem;
@@ -94,8 +94,8 @@ main {
 }
 .bio-links li a:hover,
 .bio-links li a:focus {
-  color: var(--accent, #4c84ff);
-  border-bottom-color: var(--accent, #4c84ff);
+  color: var(--accent, #99c4e4);
+  border-bottom-color: var(--accent, #99c4e4);
 }
 
 /* Footer */
