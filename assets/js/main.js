@@ -1,4 +1,3 @@
-// Section reveal animations using IntersectionObserver
 document.addEventListener('DOMContentLoaded', function() {
   // Section reveal animation (unchanged)
   const sections = document.querySelectorAll('.section');
@@ -47,41 +46,41 @@ document.addEventListener('DOMContentLoaded', function() {
     siteLogo.classList.add('visible');
   }
 
-  // Hamburger menu logic
+  // Hamburger menu logic for new layout
   const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
-  if (hamburger && navMenu) {
+  const navMenuMobile = document.querySelector('.nav-menu-mobile');
+  if (hamburger && navMenuMobile) {
     // Toggle nav menu
     hamburger.addEventListener('click', (e) => {
       e.stopPropagation();
       hamburger.classList.toggle('active');
-      navMenu.classList.toggle('open');
+      navMenuMobile.classList.toggle('open');
     });
 
     // Close when a link is clicked
-    navMenu.addEventListener('click', function(e) {
+    navMenuMobile.addEventListener('click', function(e) {
       if (e.target.classList.contains('nav-item')) {
         hamburger.classList.remove('active');
-        navMenu.classList.remove('open');
+        navMenuMobile.classList.remove('open');
       }
     });
 
     // Click outside to close
     document.addEventListener('click', function(e) {
       if (
-        navMenu.classList.contains('open') &&
-        !navMenu.contains(e.target) &&
+        navMenuMobile.classList.contains('open') &&
+        !navMenuMobile.contains(e.target) &&
         !hamburger.contains(e.target)
       ) {
         hamburger.classList.remove('active');
-        navMenu.classList.remove('open');
+        navMenuMobile.classList.remove('open');
       }
     });
 
     // Responsive fix: close menu on resize to desktop
     window.addEventListener('resize', function() {
       if (window.innerWidth > 800) {
-        navMenu.classList.remove('open');
+        navMenuMobile.classList.remove('open');
         hamburger.classList.remove('active');
       }
     });
