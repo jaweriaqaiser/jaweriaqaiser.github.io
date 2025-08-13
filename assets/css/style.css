@@ -25,7 +25,7 @@ a:hover { text-decoration: underline; }
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0.4rem 1rem;
+  padding: 0.4rem 2rem;
 }
 
 /* --- Desktop layout for centered logo and split nav --- */
