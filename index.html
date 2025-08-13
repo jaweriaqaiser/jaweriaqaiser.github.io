@@ -12,18 +12,31 @@
   <!-- Top navigation bar -->
   <header class="site-header">
     <nav class="site-nav" aria-label="Main navigation">
-      <span class="site-logo" id="siteLogo">Jaweria Qaiser</span>
-      <div class="nav-menu">
+      <!-- Left menu (desktop only) -->
+      <div class="nav-menu nav-menu-left">
         <a href="#cv" class="nav-item">CV</a>
         <a href="#research" class="nav-item">Research</a>
-        <a href="#creative" class="nav-item">Portfolio</a>
+      </div>
+      <!-- Logo -->
+      <span class="site-logo" id="siteLogo">Jaweria Qaiser</span>
+      <!-- Right menu (desktop only) -->
+      <div class="nav-menu nav-menu-right">
+        <a href="#portfolio" class="nav-item">Portfolio</a>
         <a href="#contact" class="nav-item">Contact</a>
       </div>
+      <!-- Hamburger for mobile -->
       <button class="hamburger" aria-label="Open navigation" aria-expanded="false">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
       </button>
+      <!-- Mobile menu (all links) -->
+      <div class="nav-menu nav-menu-mobile">
+        <a href="#cv" class="nav-item">CV</a>
+        <a href="#research" class="nav-item">Research</a>
+        <a href="#portfolio" class="nav-item">Portfolio</a>
+        <a href="#contact" class="nav-item">Contact</a>
+      </div>
     </nav>
   </header>
 
