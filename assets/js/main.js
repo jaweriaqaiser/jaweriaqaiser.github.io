@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
-          observer.unobserve(entry.target); // Only animate once
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.18 });
@@ -27,12 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          // If the hero section is in view, hide the logo
           if (entry.isIntersecting && lastVisible !== false) {
             siteLogo.classList.remove('visible');
             lastVisible = false;
-          } 
-          // If the hero section is NOT in view, show the logo
+          }
           else if (!entry.isIntersecting && lastVisible !== true) {
             siteLogo.classList.add('visible');
             lastVisible = true;
@@ -46,7 +44,46 @@ document.addEventListener('DOMContentLoaded', function() {
     );
     logoObserver.observe(heroSection);
   } else if (siteLogo) {
-    // Fallback: always show logo
     siteLogo.classList.add('visible');
+  }
+
+  // Hamburger menu logic
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  if (hamburger && navMenu) {
+    // Toggle nav menu
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
+
+    // Close when a link is clicked
+    navMenu.addEventListener('click', function(e) {
+      if (e.target.classList.contains('nav-item')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('open');
+      }
+    });
+
+    // Click outside to close
+    document.addEventListener('click', function(e) {
+      if (
+        navMenu.classList.contains('open') &&
+        !navMenu.contains(e.target) &&
+        !hamburger.contains(e.target)
+      ) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('open');
+      }
+    });
+
+    // Responsive fix: close menu on resize to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 800) {
+        navMenu.classList.remove('open');
+        hamburger.classList.remove('active');
+      }
+    });
   }
 });
