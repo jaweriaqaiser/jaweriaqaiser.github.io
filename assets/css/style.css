@@ -19,11 +19,16 @@ a:hover { text-decoration: underline; }
   z-index: 100;
 }
 .site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0.4rem 1rem;
 }
 .nav-menu {
+  flex: 2 1 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -158,6 +163,9 @@ a:hover { text-decoration: underline; }
     z-index: 200;
   }
   .site-nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     padding: 0.2rem 0.5rem;
     position: relative;
   }
@@ -175,8 +183,9 @@ a:hover { text-decoration: underline; }
     border-bottom: none;
   }
   .site-logo {
-    font-size: 1.3rem;
+    flex: none;
     text-align: left;
+    font-size: 1.3rem;
     padding-left: 1.2rem;
   }
   .hamburger {
