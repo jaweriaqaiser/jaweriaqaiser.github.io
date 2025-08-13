@@ -1,6 +1,6 @@
 // Section reveal animations using IntersectionObserver
 document.addEventListener('DOMContentLoaded', function() {
-  // Section reveal animation
+  // Section reveal animation (unchanged)
   const sections = document.querySelectorAll('.section');
   if ('IntersectionObserver' in window) {
     const revealObserver = new window.IntersectionObserver((entries, observer) => {
@@ -19,30 +19,32 @@ document.addEventListener('DOMContentLoaded', function() {
     sections.forEach(section => section.classList.add('revealed'));
   }
 
-  // Logo show/hide animation based on About section visibility
+  // Logo show/hide animation based on Hero section visibility
   const siteLogo = document.getElementById('siteLogo');
-  const aboutSection = document.getElementById('about');
-  if (siteLogo && aboutSection && 'IntersectionObserver' in window) {
+  const heroSection = document.querySelector('.hero-image-section');
+  if (siteLogo && heroSection && 'IntersectionObserver' in window) {
     let lastVisible = false;
     const logoObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          // Only trigger on section entry/exit, not while scrolling within
-          if (entry.isIntersecting && !lastVisible) {
-            siteLogo.classList.add('visible');
-            lastVisible = true;
-          } else if (!entry.isIntersecting && lastVisible) {
+          // If the hero section is in view, hide the logo
+          if (entry.isIntersecting && lastVisible !== false) {
             siteLogo.classList.remove('visible');
             lastVisible = false;
+          } 
+          // If the hero section is NOT in view, show the logo
+          else if (!entry.isIntersecting && lastVisible !== true) {
+            siteLogo.classList.add('visible');
+            lastVisible = true;
           }
         });
       },
       {
         root: null,
-        threshold: 0.3
+        threshold: 0.3,
       }
     );
-    logoObserver.observe(aboutSection);
+    logoObserver.observe(heroSection);
   } else if (siteLogo) {
     // Fallback: always show logo
     siteLogo.classList.add('visible');
