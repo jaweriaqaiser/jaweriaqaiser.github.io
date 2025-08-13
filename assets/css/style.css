@@ -62,18 +62,148 @@ a:hover { text-decoration: underline; }
   pointer-events: auto;
 }
 
-/* Responsive adjustments */
+/* --- Hamburger Menu Styles (Mobile/Tablet) --- */
+.hamburger {
+  display: none;
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.2rem;
+  height: 2.2rem;
+  cursor: pointer;
+  z-index: 110;
+  background: none;
+  border: none;
+  outline: none;
+}
+.hamburger-box {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-block;
+  position: relative;
+}
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  display: block;
+  background-color: #fffffa;
+  position: absolute;
+  width: 2rem;
+  height: 0.22rem;
+  border-radius: 0.1rem;
+  transition: all 0.35s cubic-bezier(.4,0,.2,1);
+}
+.hamburger-inner {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  left: 0;
+}
+.hamburger-inner::before {
+  top: -0.6rem;
+}
+.hamburger-inner::after {
+  top: 0.6rem;
+}
+/* Hamburger active (X) animation */
+.hamburger.active .hamburger-inner {
+  background-color: transparent;
+}
+.hamburger.active .hamburger-inner::before {
+  transform: translateY(0.6rem) rotate(45deg);
+}
+.hamburger.active .hamburger-inner::after {
+  transform: translateY(-0.6rem) rotate(-45deg);
+}
+
+/* Responsive Navigation */
 @media (max-width: 800px) {
-  .site-nav {
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fffffa;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem 0.5rem;
+    align-items: stretch;
+    gap: 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.32s cubic-bezier(.4,0,.2,1);
+    z-index: 109;
+    pointer-events: none;
   }
-  .nav-left, .nav-right {
-    gap: 0.7rem;
+  .nav-menu.open {
+    max-height: 320px; /* enough for 4-5 links */
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 0s, 0s;
+  }
+  .site-header {
+    position: relative;
+    z-index: 200;
+  }
+  .site-nav {
+    padding: 0.2rem 0.5rem;
+    position: relative;
+  }
+  .nav-item,
+  .site-logo {
+    font-size: 1.1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f2f2f2;
+    text-align: left;
+    width: 100%;
+    background: none;
+  }
+  .nav-item:last-child,
+  .site-logo:last-child {
+    border-bottom: none;
   }
   .site-logo {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    text-align: left;
+    padding-left: 1.2rem;
+  }
+  .hamburger {
+    display: block;
+  }
+  /* Hide nav-menu by default on mobile/tablet */
+  .site-nav {
+    min-height: 3.4rem;
+  }
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 801px) {
+  .hamburger {
+    display: none !important;
+  }
+  .nav-menu {
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    max-height: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    box-shadow: none !important;
+    background: none !important;
+    gap: 0;
+  }
+  .nav-item,
+  .site-logo {
+    border-bottom: none !important;
+    padding: 0.7rem 0 !important;
+    width: auto !important;
+    text-align: center !important;
   }
 }
 
