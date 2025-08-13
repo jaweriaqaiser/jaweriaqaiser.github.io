@@ -146,6 +146,13 @@ a:hover { text-decoration: underline; }
     pointer-events: auto;
     transition-delay: 0s, 0s;
   }
+  .nav-menu.open .nav-item {
+    color: #222; /* Replace with your preferred color */
+  }
+  .nav-menu.open .nav-item:hover,
+  .nav-menu.open .nav-item:focus {
+    color: #99c4e4; /* Replace with your hover color */
+  }
   .site-header {
     position: relative;
     z-index: 200;
