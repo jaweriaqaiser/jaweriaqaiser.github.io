@@ -21,7 +21,7 @@ a:hover { text-decoration: underline; }
 .site-nav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
@@ -35,6 +35,12 @@ a:hover { text-decoration: underline; }
   gap: 2rem;
   flex: 1 1 0;
   justify-content: flex-end;
+}
+.nav-menu-left {
+  justify-content: flex-start; /* <-- left align */
+}
+.nav-menu-right {
+  justify-content: flex-end;   /* <-- right align */
 }
 .site-logo {
   flex: 0 0 auto;
