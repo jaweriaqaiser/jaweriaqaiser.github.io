@@ -14,7 +14,7 @@ a:hover { text-decoration: underline; }
 .site-header {
   position: sticky;
   top: 0;
-  background: #fffffa;
+  background: #99c4e4;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   z-index: 100;
 }
@@ -34,14 +34,14 @@ a:hover { text-decoration: underline; }
   text-align: center;
   font-size: 1.08rem;
   font-weight: 500;
-  color: #222;
+  color: #fffffa;
   padding: 0.7rem 0;
   transition: color 0.2s;
   letter-spacing: 0.01em;
 }
 .nav-item:hover,
 .nav-item:focus {
-  color: var(--accent, #99c4e4);
+  color: var(--accent, #222);
 }
 .site-logo {
   flex: 1 1 0;
@@ -49,7 +49,7 @@ a:hover { text-decoration: underline; }
   font-family: 'Playfair Display';
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--accent, #99c4e4);
+  color: var(--accent, #fffffa);
   letter-spacing: 0.04em;
   opacity: 0;
   pointer-events: none;
