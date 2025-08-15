@@ -236,7 +236,7 @@ a:hover { text-decoration: underline; }
 /* Main sections */
 main {
   max-width: 700px;
-  margin: 0rem auto 2rem auto;
+  margin: 2rem auto 2rem auto;
   padding: 0 1rem;
 }
 
