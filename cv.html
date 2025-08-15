@@ -36,12 +36,19 @@
   </header>
 
   <main>
-    <section class="section cv-publications">
+    <section id="publications" class="section publications-section">
       <h2>Publications</h2>
+      <!-- Filters/Search UI -->
+      <form id="pubFilters" class="pub-filters" aria-label="Filter publications">
+        <input type="text" id="pubSearch" placeholder="Search..." aria-label="Search publications">
+        <select id="pubYearFilter" aria-label="Filter by year"><option value="">All years</option></select>
+        <select id="pubTypeFilter" aria-label="Filter by type"><option value="">All types</option></select>
+        <button type="button" id="downloadBib" title="Download BibTeX" aria-label="Download BibTeX">BibTeX</button>
+      </form>
       <!-- Publications content is injected by JS from content.js -->
       <div id="publicationsList"></div>
-    </section>
-
+      </section>
+    
     <section class="section cv-awards">
       <h2>Awards & Honors</h2>
       <ul>
