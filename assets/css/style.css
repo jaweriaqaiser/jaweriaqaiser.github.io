@@ -244,7 +244,7 @@ main {
   width: 100vw;
   height: 50vh; /* or whatever height you want */
   min-height: 320px;
-  background-image: url('assets/images/profile.jpg');
+  background-image: url('../images/profile.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
