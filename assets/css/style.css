@@ -331,3 +331,26 @@ main {
     transform: none !important;
   }
 }
+
+/* Buttons for publications on CV page */
+.pub-buttons {
+  margin-top: 0.5em;
+  display: flex;
+  gap: 0.5em;
+}
+
+.pub-btn {
+  display: inline-block;
+  padding: 0.4em 1em;
+  background: #4682b4;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.95em;
+  transition: background 0.2s;
+}
+
+.pub-btn:hover,
+.pub-btn:focus {
+  background: #315c7d;
+}
