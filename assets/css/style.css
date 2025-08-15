@@ -354,3 +354,8 @@ main {
 .pub-btn:focus {
   background: #315c7d;
 }
+
+/* Header fonts */
+.title {
+  font-family: 'Playfair Display', serif;
+}
