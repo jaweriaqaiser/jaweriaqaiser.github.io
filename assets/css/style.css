@@ -242,7 +242,7 @@ main {
 
 .hero-image-section {
   width: 100vw;
-  height: 50vh; /* or whatever height you want */
+  height: 100vh; /* or whatever height you want */
   min-height: 320px;
   background-image: url('../images/profile.jpg');
   background-size: cover;
