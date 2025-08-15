@@ -7,59 +7,6 @@
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    /* Timeline styles */
-    .timeline {
-      border-left: 3px solid #99c4e4;
-      padding-left: 1rem;
-      margin-bottom: 2rem;
-    }
-    .timeline-item {
-      margin-bottom: 2rem;
-      position: relative;
-    }
-    .timeline-date {
-      font-weight: bold;
-      color: #99c4e4;
-    }
-    .timeline-content h3 {
-      margin: 0.2rem 0;
-    }
-
-    /* Accordion styles */
-    .accordion-toggle {
-      cursor: pointer;
-      font-weight: bold;
-      color: #99c4e4;
-      margin-bottom: 0.5rem;
-    }
-    .accordion-content {
-      display: none;
-      margin-bottom: 2rem;
-    }
-
-    /* Filter styles */
-    .filter-buttons {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-    .filter-buttons button {
-      background: #99c4e4;
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .filter-section {
-      display: none;
-    }
-    .filter-section.active {
-      display: block;
-    }
-  </style>
 </head>
 <body>
   <!-- Navigation -->
@@ -89,95 +36,75 @@
   </header>
 
   <main>
-    <!-- Filter Buttons -->
-    <div class="section">
-      <h2>🔍 Explore My CV</h2>
-      <div class="filter-buttons">
-        <button onclick="showSection('education')">🎓 Education</button>
-        <button onclick="showSection('awards')">🏆 Awards</button>
-        <button onclick="showSection('teaching')">📚 Teaching</button>
-        <button onclick="showSection('research')">🧪 Research</button>
-        <button onclick="showSection('presentations')">🎤 Presentations</button>
-        <button onclick="showSection('volunteer')">🤝 Volunteer</button>
-      </div>
-    </div>
-
-    <!-- Timeline: Education & Research -->
-    <section class="section filter-section active" id="education">
-      <h2>🎓 Education & Research Timeline</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-date">2021–Present</span>
-          <div class="timeline-content">
-            <h3>Ph.D., Social/Personality Psychology</h3>
-            <p>University of Toronto</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-date">2017–2021</span>
-          <div class="timeline-content">
-            <h3>H.B.Sc., Psychology (Neurobiology)</h3>
-            <p>University of Toronto Mississauga</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Accordion: Awards -->
-    <section class="section filter-section" id="awards">
-      <h2 class="accordion-toggle" onclick="toggleAccordion('awardsContent')">🏆 Scholarships & Awards</h2>
-      <ul class="accordion-content" id="awardsContent">
-        <li>SSHRC Doctoral Award ($80,000)</li>
-        <li>OGS Scholarship ($15,000)</li>
-        <li>Storytellers Challenge Winner ($4,000)</li>
-        <!-- More awards -->
-      </ul>
-    </section>
-
-    <!-- Teaching -->
-    <section class="section filter-section" id="teaching">
-      <h2>📚 Teaching & Mentoring</h2>
+    <section class="section cv-education">
+      <h2>Education</h2>
       <ul>
-        <li>Lecturer on Psychophysiology, Summer Psychology Research Initiative</li>
-        <li>Mentor, Independent Research Projects</li>
-        <!-- More roles -->
+        <li><strong>Ph.D., Social/Personality Psychology</strong>, University of Toronto (2021–Present)</li>
+        <li><strong>H.B.Sc., Psychology (Neurobiology)</strong>, University of Toronto Mississauga (2017–2021), Graduated with distinction</li>
       </ul>
     </section>
 
-    <!-- Research -->
-    <section class="section filter-section" id="research">
-      <h2>🧪 Research Experience</h2>
+    <section class="section cv-awards">
+      <h2>Scholarships & Awards</h2>
       <ul>
-        <li>Graduate Researcher, University of Toronto (2021–Present)</li>
-        <li>Undergraduate Research Assistant, Multiple Labs (2018–2021)</li>
-        <!-- More roles -->
+        <li>SSHRC Canada Graduate Scholarship Doctoral Award ($80,000)</li>
+        <li>SSHRC Storytellers Challenge Winner ($4,000)</li>
+        <li>Ontario Graduate Scholarship (OGS; $15,000)</li>
+        <!-- Add more awards as needed -->
       </ul>
     </section>
 
-    <!-- Accordion: Presentations -->
-    <section class="section filter-section" id="presentations">
-      <h2 class="accordion-toggle" onclick="toggleAccordion('presentationsContent')">🎤 Conference Presentations</h2>
-      <ul class="accordion-content" id="presentationsContent">
-        <li>Reading the Room – SWCC Conference, 2025</li>
-        <li>Understanding Compassion Fatigue – SPSP, 2023</li>
-        <!-- More presentations -->
+    <section class="section cv-teaching">
+      <h2>Teaching & Mentoring</h2>
+      <ul>
+        <li>Lecturer on Psychophysiology, Summer Psychology Research Initiative (2023–2025)</li>
+        <li>Mentor, Independent Research Projects on empathy and compassion (2023–2025)</li>
+        <!-- Add more roles -->
       </ul>
     </section>
 
-    <!-- Accordion: Volunteer -->
-    <section class="section filter-section" id="volunteer">
-      <h2 class="accordion-toggle" onclick="toggleAccordion('volunteerContent')">🤝 Volunteer Activities</h2>
-      <ul class="accordion-content" id="volunteerContent">
-        <li>Judge, Summer Psychology Research Initiative</li>
-        <li>Workshop Developer, Community Living Mississauga</li>
-        <!-- More activities -->
+    <section class="section cv-publications">
+      <h2>Publications</h2>
+      <ul>
+        <li>
+          Qaiser, J., et al. (2023). Shared Hearts and Minds: Physiological Synchrony During Empathy. <em>Affective Science</em>.
+          <button onclick="downloadBibtex('bibtex1')">Download BibTeX</button>
+          <pre id="bibtex1" style="display:none;">
+@article{qaiser2023shared,
+  title={Shared Hearts and Minds: Physiological Synchrony During Empathy},
+  author={Qaiser, Jaweria and others},
+  journal={Affective Science},
+  year={2023},
+  volume={4},
+  pages={711--721}
+}
+          </pre>
+        </li>
+        <!-- Add more publications with buttons -->
       </ul>
     </section>
 
-    <!-- Citation Graph -->
-    <section class="section">
-      <h2>📊 Publication Impact</h2>
+    <section class="section cv-citations">
+      <h2>Publication Impact</h2>
       <img src="assets/images/jaweria_qaiser_citations_bar_graph.png" alt="Citation Counts for Publications" style="max-width:100%; height:auto;">
+    </section>
+
+    <section class="section cv-presentations">
+      <h2>Conference Presentations</h2>
+      <ul>
+        <li>Reading the room: Empathic accuracy for group emotions – SWCC Conference, 2025</li>
+        <li>Understanding Compassion Fatigue – SPSP Convention, 2023</li>
+        <!-- Add more presentations -->
+      </ul>
+    </section>
+
+    <section class="section cv-volunteer">
+      <h2>Volunteer Activities</h2>
+      <ul>
+        <li>Judge, Summer Psychology Research Initiative (2024)</li>
+        <li>Workshop Developer, Community Living Mississauga (2020–2021)</li>
+        <!-- Add more activities -->
+      </ul>
     </section>
   </main>
 
@@ -186,17 +113,6 @@
   </footer>
 
   <script>
-    function toggleAccordion(id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === 'none' ? 'block' : 'none';
-    }
-
-    function showSection(id) {
-      const sections = document.querySelectorAll('.filter-section');
-      sections.forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-
     function downloadBibtex(id) {
       const bib = document.getElementById(id).textContent;
       const blob = new Blob([bib], { type: 'text/plain' });
