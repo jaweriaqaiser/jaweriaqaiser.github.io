@@ -276,6 +276,98 @@ main {
   margin-bottom: 0.7rem;
 }
 
+/* ===== PUBLICATIONS ===== */
+.pub-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 0.9rem;
+  align-items: center;
+}
+.pub-filters input,
+.pub-filters select {
+  border: 1px solid var(--rail-border);
+  border-radius: var(--border-radius);
+  background: #fff;
+  color: var(--text);
+  padding: 0.36em 0.8em;
+  font-size: 1rem;
+}
+.pub-filters button {
+  background: var(--accent-2);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.38em 1.1em;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.pub-filters button:hover, .pub-filters button:focus {
+  background: var(--accent);
+  outline: none;
+}
+#publicationsList {
+  margin-top: 0.6rem;
+}
+.publication-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.publication-year {
+  margin: 1.4em 0 0.5em;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.07rem;
+}
+.publication-item {
+  margin-bottom: 1.2em;
+  background: #fff;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--rail-border);
+  padding: 0.9em 1.1em 0.7em 1.1em;
+  box-shadow: 0 2px 7px 0 rgba(0,0,0,0.02);
+}
+.publication-title {
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin: 0 0 0.13em 0;
+}
+.publication-meta {
+  font-size: 0.99rem;
+  color: var(--text-light);
+}
+.publication-links a {
+  margin-right: 1.15em;
+  color: var(--accent-2);
+  font-size: 0.97em;
+  text-decoration: none;
+}
+.publication-links a:hover, .publication-links a:focus {
+  text-decoration: underline;
+  color: var(--accent);
+  outline: none;
+}
+.publication-abstract-toggle {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 1em;
+  margin: 0.4em 0 0.2em 0;
+  padding: 0;
+  text-decoration: underline;
+}
+.publication-abstract {
+  background: var(--rail-bg);
+  border-radius: var(--border-radius);
+  padding: 0.7em 1em;
+  margin-top: 0.5em;
+  font-size: 0.98em;
+  display: none;
+}
+
 /* Contact links */
 .bio-links {
   list-style: none;
