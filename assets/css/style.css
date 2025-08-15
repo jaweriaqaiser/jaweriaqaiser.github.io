@@ -239,28 +239,22 @@ main {
   margin: 0rem auto 2rem auto;
   padding: 0 1rem;
 }
+
 .hero-image-section {
   width: 100vw;
+  height: 50vh; /* or whatever height you want */
+  min-height: 320px;
+  background-image: url('profile.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Optional overlay for better text readability */
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  background: #f7e4d6;
-  padding: 0;
-  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
 }
-.hero-image {
-  display: block;
-  width: 100vw;
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  margin: 0 auto;
-}
-.hero-image-section {
-  margin-top: 0;
-}
+
 .section {
   margin-bottom: 3.5rem;
   opacity: 0;
