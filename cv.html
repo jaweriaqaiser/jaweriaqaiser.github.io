@@ -8,49 +8,162 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    .timeline { border-left: 3px solid #99c4e4; padding-left: 1rem; margin-bottom: 2rem; }
-    .timeline-item { margin-bottom: 2rem; }
-    .timeline-date { font-weight: bold; color: #99c4e4; }
-    .accordion-toggle { cursor: pointer; font-weight: bold; color: #99c4e4; margin-bottom: 0.5rem; }
-    .accordion-content { display: none; margin-bottom: 2rem; }
-    .filter-buttons { display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
-    .filter-buttons button { background: #99c4e4; color: #fff; border: none; padding: 0.5rem 1rem; cursor: pointer; border-radius: 4px; }
-    .filter-section { display: none; }
-    .filter-section.active { display: block; }
+    /* Timeline */
+    .timeline {
+      border-left: 3px solid #99c4e4;
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+    }
+    .timeline-item {
+      margin-bottom: 2rem;
+    }
+    .timeline-date {
+      font-weight: bold;
+      color: #99c4e4;
+    }
+
+    /* Accordion */
+    .accordion-toggle {
+      cursor: pointer;
+      font-weight: bold;
+      color: #99c4e4;
+      margin-bottom: 0.5rem;
+    }
+    .accordion-content {
+      display: none;
+      margin-bottom: 2rem;
+    }
+
+    /* BibTeX button */
+    .bibtex-button {
+      margin-left: 1rem;
+      background: #99c4e4;
+      color: white;
+      border: none;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+  <!-- Top navigation bar -->
   <header class="site-header">
-    <!-- Navigation bar here (same as before) -->
+    <nav class="site-nav" aria-label="Main navigation">
+      <div class="nav-menu nav-menu-left">
+        <a href="/cv.html" class="nav-item">CV</a>
+        <a href="/portfolio.html" class="nav-item">Portfolio</a>
+      </div>
+      <span class="site-logo" id="siteLogo">Jaweria Qaiser</span>
+      <div class="nav-menu nav-menu-right">
+        <a href="/news.html" class="nav-item">News</a>
+        <a href="/contact.html" class="nav-item">Contact</a>
+      </div>
+      <button class="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+      <div class="nav-menu nav-menu-mobile">
+        <a href="/cv.html" class="nav-item">CV</a>
+        <a href="/portfolio.html" class="nav-item">Portfolio</a>
+        <a href="/news.html" class="nav-item">News</a>
+        <a href="/contact.html" class="nav-item">Contact</a>
+      </div>
+    </nav>
   </header>
 
   <main>
-    <div class="section">
-      <h2>🔍 Explore My CV</h2>
-      <div class="filter-buttons">
-        <button onclick="showSection('education')">🎓 Education</button>
-        <button onclick="showSection('awards')">🏆 Awards</button>
-      </div>
-    </div>
-
-    <section class="section filter-section active" id="education">
-      <h2>🎓 Education & Research Timeline</h2>
+    <!-- Timeline: Education & Research -->
+    <section class="section cv-education">
+      <h2>🎓 Education & Research</h2>
       <div class="timeline">
         <div class="timeline-item">
           <span class="timeline-date">2021–Present</span>
-          <div class="timeline-content">
-            <h3>Ph.D., Social/Personality Psychology</h3>
-            <p>University of Toronto</p>
-          </div>
+          <p><strong>Ph.D., Social/Personality Psychology</strong>, University of Toronto</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">2017–2021</span>
+          <p><strong>H.B.Sc., Psychology (Neurobiology)</strong>, University of Toronto Mississauga</p>
         </div>
       </div>
     </section>
 
-    <section class="section filter-section" id="awards">
-      <h2 class="accordion-toggle" onclick="toggleAccordion('awardsContent')">🏆 Scholarships & Awards</h2>
-      <ul class="accordion-content" id="awardsContent">
-        <li>SSHRC Doctoral Award ($80,000)</li>
+    <!-- Publications -->
+    <section class="section cv-publications">
+      <h2>📚 Publications</h2>
+      <ul>
+        <li>
+          Qaiser, J., et al. (2023). Shared Hearts and Minds. <em>Affective Science</em>.
+          <button class="bibtex-button" onclick="downloadBibtex('bibtex1')">Download BibTeX</button>
+          <pre id="bibtex1" style="display:none;">
+@article{qaiser2023shared,
+  title={Shared Hearts and Minds: Physiological Synchrony During Empathy},
+  author={Qaiser, Jaweria and others},
+  journal={Affective Science},
+  year={2023},
+  volume={4},
+  pages={711--721}
+}
+          </pre>
+        </li>
       </ul>
+    </section>
+
+    <!-- Accordion: Awards -->
+    <section class="section cv-awards">
+      <h2 class="accordion-toggle" onclick="toggleAccordion('awardsContent')">🏆 Awards & Honors</h2>
+      <ul class="accordion-content" id="awardsContent">
+        <li>National Award for [Achievement], [Year]</li>
+        <!-- Other awards -->
+      </ul>
+    </section>
+
+    <!-- Accordion: Presentations -->
+    <section class="section cv-presentations">
+      <h2 class="accordion-toggle" onclick="toggleAccordion('presentationsContent')">🎤 Conference Presentations</h2>
+      <ul class="accordion-content" id="presentationsContent">
+        <li>Qaiser, J. (2024). Title of Talk. Presented at [Conference Name], [Location].</li>
+        <!-- Other presentations -->
+      </ul>
+    </section>
+
+    <!-- Teaching -->
+    <section class="section cv-teaching">
+      <h2>📚 Teaching Experience</h2>
+      <ul>
+        <li>
+          <strong>Course Instructor</strong>, [Course], [Institution], [Year]<br>
+          Brief description or bullet points on teaching duties.
+        </li>
+        <!-- Other teaching roles -->
+      </ul>
+    </section>
+
+    <!-- Service -->
+    <section class="section cv-service">
+      <h2>🤝 Service & Outreach</h2>
+      <ul>
+        <li>Mentor, Workshop Leader, [Details]</li>
+        <!-- Other service/outreach activities -->
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section class="section cv-skills">
+      <h2>🛠️ Technical & Research Skills</h2>
+      <ul>
+        <li>Data Analysis (R, Python, SPSS)</li>
+        <li>Psychophysiology Methods</li>
+        <li>Science Communication</li>
+        <!-- Other skills -->
+      </ul>
+    </section>
+
+    <!-- Citation Graph -->
+    <section class="section cv-impact">
+      <h2>📊 Citation Impact</h2>
+      <img src="assets/images/jaweria_qaiser_citations_bar_graph.png" alt="Citation Counts for Publications" style="max-width:100%; height:auto;">
     </section>
   </main>
 
@@ -64,11 +177,13 @@
       el.style.display = el.style.display === 'none' ? 'block' : 'none';
     }
 
-    function showSection(id) {
-      const sections = document.querySelectorAll('.filter-section');
-      sections.forEach(sec => sec.classList.remove('active'));
-      const target = document.getElementById(id);
-      if (target) target.classList.add('active');
+    function downloadBibtex(id) {
+      const bib = document.getElementById(id).textContent;
+      const blob = new Blob([bib], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `${id}.bib`;
+      link.click();
     }
   </script>
 </body>
