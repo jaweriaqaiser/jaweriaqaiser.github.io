@@ -7,9 +7,62 @@
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Timeline styles */
+    .timeline {
+      border-left: 3px solid #99c4e4;
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+    }
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .timeline-date {
+      font-weight: bold;
+      color: #99c4e4;
+    }
+    .timeline-content h3 {
+      margin: 0.2rem 0;
+    }
+
+    /* Accordion styles */
+    .accordion-toggle {
+      cursor: pointer;
+      font-weight: bold;
+      color: #99c4e4;
+      margin-bottom: 0.5rem;
+    }
+    .accordion-content {
+      display: none;
+      margin-bottom: 2rem;
+    }
+
+    /* Filter styles */
+    .filter-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .filter-buttons button {
+      background: #99c4e4;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .filter-section {
+      display: none;
+    }
+    .filter-section.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  <!-- Top navigation bar -->
+  <!-- Navigation -->
   <header class="site-header">
     <nav class="site-nav" aria-label="Main navigation">
       <div class="nav-menu nav-menu-left">
@@ -36,59 +89,95 @@
   </header>
 
   <main>
-    <section class="section cv-publications">
-      <h2>Publications</h2>
-      <ul>
-        <li>
-          Qaiser, J., [Others]. (2023). Title of Paper. <em>Affective Science</em>, Volume(Issue), pages. <a href="#">[link]</a>
-        </li>
-        <!-- List other publications -->
+    <!-- Filter Buttons -->
+    <div class="section">
+      <h2>🔍 Explore My CV</h2>
+      <div class="filter-buttons">
+        <button onclick="showSection('education')">🎓 Education</button>
+        <button onclick="showSection('awards')">🏆 Awards</button>
+        <button onclick="showSection('teaching')">📚 Teaching</button>
+        <button onclick="showSection('research')">🧪 Research</button>
+        <button onclick="showSection('presentations')">🎤 Presentations</button>
+        <button onclick="showSection('volunteer')">🤝 Volunteer</button>
+      </div>
+    </div>
+
+    <!-- Timeline: Education & Research -->
+    <section class="section filter-section active" id="education">
+      <h2>🎓 Education & Research Timeline</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">2021–Present</span>
+          <div class="timeline-content">
+            <h3>Ph.D., Social/Personality Psychology</h3>
+            <p>University of Toronto</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">2017–2021</span>
+          <div class="timeline-content">
+            <h3>H.B.Sc., Psychology (Neurobiology)</h3>
+            <p>University of Toronto Mississauga</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accordion: Awards -->
+    <section class="section filter-section" id="awards">
+      <h2 class="accordion-toggle" onclick="toggleAccordion('awardsContent')">🏆 Scholarships & Awards</h2>
+      <ul class="accordion-content" id="awardsContent">
+        <li>SSHRC Doctoral Award ($80,000)</li>
+        <li>OGS Scholarship ($15,000)</li>
+        <li>Storytellers Challenge Winner ($4,000)</li>
+        <!-- More awards -->
       </ul>
     </section>
 
-    <section class="section cv-awards">
-      <h2>Awards & Honors</h2>
+    <!-- Teaching -->
+    <section class="section filter-section" id="teaching">
+      <h2>📚 Teaching & Mentoring</h2>
       <ul>
-        <li>National Award for [Achievement], [Year]</li>
-        <!-- Other awards -->
+        <li>Lecturer on Psychophysiology, Summer Psychology Research Initiative</li>
+        <li>Mentor, Independent Research Projects</li>
+        <!-- More roles -->
       </ul>
     </section>
 
-    <section class="section cv-presentations">
-      <h2>Conference Presentations</h2>
+    <!-- Research -->
+    <section class="section filter-section" id="research">
+      <h2>🧪 Research Experience</h2>
       <ul>
-        <li>Qaiser, J. (2024). Title of Talk. Presented at [Conference Name], [Location].</li>
-        <!-- Other presentations -->
+        <li>Graduate Researcher, University of Toronto (2021–Present)</li>
+        <li>Undergraduate Research Assistant, Multiple Labs (2018–2021)</li>
+        <!-- More roles -->
       </ul>
     </section>
 
-    <section class="section cv-teaching">
-      <h2>Teaching Experience</h2>
-      <ul>
-        <li>
-          <strong>Course Instructor</strong>, [Course], [Institution], [Year]<br>
-          Brief description or bullet points on teaching duties.
-        </li>
-        <!-- Other teaching roles -->
+    <!-- Accordion: Presentations -->
+    <section class="section filter-section" id="presentations">
+      <h2 class="accordion-toggle" onclick="toggleAccordion('presentationsContent')">🎤 Conference Presentations</h2>
+      <ul class="accordion-content" id="presentationsContent">
+        <li>Reading the Room – SWCC Conference, 2025</li>
+        <li>Understanding Compassion Fatigue – SPSP, 2023</li>
+        <!-- More presentations -->
       </ul>
     </section>
 
-    <section class="section cv-service">
-      <h2>Service & Outreach</h2>
-      <ul>
-        <li>Mentor, Workshop Leader, [Details]</li>
-        <!-- Other service/outreach activities -->
+    <!-- Accordion: Volunteer -->
+    <section class="section filter-section" id="volunteer">
+      <h2 class="accordion-toggle" onclick="toggleAccordion('volunteerContent')">🤝 Volunteer Activities</h2>
+      <ul class="accordion-content" id="volunteerContent">
+        <li>Judge, Summer Psychology Research Initiative</li>
+        <li>Workshop Developer, Community Living Mississauga</li>
+        <!-- More activities -->
       </ul>
     </section>
 
-    <section class="section cv-skills">
-      <h2>Technical & Research Skills</h2>
-      <ul>
-        <li>Data Analysis (R, Python, SPSS)</li>
-        <li>Psychophysiology Methods</li>
-        <li>Science Communication</li>
-        <!-- Other skills -->
-      </ul>
+    <!-- Citation Graph -->
+    <section class="section">
+      <h2>📊 Publication Impact</h2>
+      <img src="assets/images/jaweria_qaiser_citations_bar_graph.png" alt="Citation Counts for Publications" style="max-width:100%; height:auto;">
     </section>
   </main>
 
@@ -96,6 +185,26 @@
     <span>&copy; 2025 Jaweria Qaiser</span>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    function toggleAccordion(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function showSection(id) {
+      const sections = document.querySelectorAll('.filter-section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function downloadBibtex(id) {
+      const bib = document.getElementById(id).textContent;
+      const blob = new Blob([bib], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `${id}.bib`;
+      link.click();
+    }
+  </script>
 </body>
 </html>
