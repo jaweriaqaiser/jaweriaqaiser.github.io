@@ -58,7 +58,18 @@ a:hover { text-decoration: underline; }
   will-change: opacity;
   user-select: none;
   margin: 0 2rem;
+    text-decoration: none;  /* removes underline */
+  color: var(--accent, #fffffa); /* ensures color stays as you set */
 }
+
+.site-logo:visited,
+.site-logo:active,
+.site-logo:hover,
+.site-logo:focus {
+  color: var(--accent, #fffffa);
+  text-decoration: none;
+}
+
 .site-logo.visible {
   opacity: 1;
   pointer-events: auto;
