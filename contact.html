@@ -7,6 +7,55 @@
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .contact-form {
+      margin: 2em auto 0 auto;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.9em 1em;
+      font-family: 'Inter', sans-serif;
+      font-size: 1em;
+      border: none;
+      border-radius: 3px;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(100, 100, 130, 0.05);
+      resize: none;
+      transition: box-shadow 0.18s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 2px 8px rgba(55, 80, 180, 0.10);
+    }
+    .contact-form textarea {
+      min-height: 90px;
+      max-height: 250px;
+    }
+    .contact-form button {
+      margin: 0 auto;
+      padding: 0.75em 2.5em;
+      background: #232323;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.12em;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.18s;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      display: block;
+    }
+    .contact-form button:hover {
+      background: #5d4ddb;
+    }
+  </style>
 </head>
 <body>
   <!-- Top navigation bar -->
@@ -40,8 +89,17 @@
       <span class="title"><h1 style="text-align: center;">Contact</h1></span>
       <br>
       <p>
-        For inquiries about my research, teaching, or potential collaborations, please feel free to reach out via email, or connect with me through the links below.
+        For inquiries about my research, teaching, or potential collaborations, please feel free to reach out via email, the form below, or connect with me through the links below.
       </p>
+      
+      <form class="contact-form" name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact">
+        <input type="text" name="name" placeholder="Name" required autocomplete="name">
+        <input type="email" name="email" placeholder="Email" required autocomplete="email">
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
       
       <div style="margin: 2em 0;">
         <a href="mailto:jaweria.qaiser@mail.utoronto.ca" class="contact-email" style="font-size: 1.15em; font-weight: 600;">
