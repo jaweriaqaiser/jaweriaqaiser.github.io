@@ -7,14 +7,14 @@ body {
   line-height: 1.65;
   min-height: 100vh;
 }
-a { color: var(--accent, #99c4e4); text-decoration: none; }
+a { color: var(--accent, #152238); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* Top Navigation bar */
 .site-header {
   position: sticky;
   top: 0;
-  background: #99c4e4;
+  background: #152238;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   z-index: 100;
 }
@@ -220,7 +220,7 @@ a:hover { text-decoration: underline; }
   }
   .nav-menu-mobile .nav-item:hover,
   .nav-menu-mobile .nav-item:focus {
-    color: #99c4e4;
+    color: #152238;
   }
 }
 
@@ -280,7 +280,7 @@ main {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--accent, #99c4e4);
+  color: var(--accent, #152238);
 }
 .section p, .section ul {
   font-size: 1.08rem;
@@ -305,8 +305,8 @@ main {
 }
 .bio-links li a:hover,
 .bio-links li a:focus {
-  color: var(--accent, #99c4e4);
-  border-bottom-color: var(--accent, #99c4e4);
+  color: var(--accent, #152238);
+  border-bottom-color: var(--accent, #152238);
 }
 
 /* Footer */
