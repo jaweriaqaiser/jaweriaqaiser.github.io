@@ -85,4 +85,27 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // ==== Skills Progress Bar Animation ====
+  const skillLevels = document.querySelectorAll('.skill-level');
+  if ('IntersectionObserver' in window) {
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.dataset.skill) {
+          entry.target.style.width = entry.target.dataset.skill + '%';
+          observer.unobserve(entry.target); // animate only once
+        }
+      });
+    }, { threshold: 0.3 });
+
+    skillLevels.forEach(bar => {
+      bar.style.width = '0'; // Ensure starting state
+      skillObserver.observe(bar);
+    });
+  } else {
+    // Fallback for browsers without IntersectionObserver
+    skillLevels.forEach(bar => {
+      bar.style.width = bar.dataset.skill + '%';
+    });
+  }
 });
