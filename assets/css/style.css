@@ -386,6 +386,18 @@ main {
   animation: jitter 0.3s linear;
 }
 
+@media (max-width: 600px) {
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+  }
+  .social-icons {
+    gap: 0.7rem;
+    margin: 1rem 0;
+  }
+}
+
 /* Contact links */
 .bio-links {
   list-style: none;
