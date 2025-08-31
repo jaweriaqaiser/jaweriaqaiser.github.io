@@ -100,7 +100,7 @@ a:hover { text-decoration: underline; }
   left: 50%;
   top: 50%;
   /* Make the "circle" big, lopsided, and able to overlap text */
-  transform: translate(-50%, -55%) rotate(162deg); /* Adjust rotate angle as desired */
+  transform: translate(-50%, -55%); 
   width: 4.2rem;      /* Wider for a lopsided/oval look */
   height: 2.7rem;     /* Taller for lopsided/oval look */
   border: 2.5px solid #FFFFF4;  /* Your desired outline color */
