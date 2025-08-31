@@ -94,53 +94,10 @@ a:hover { text-decoration: underline; }
   z-index: 1;
 }
 
-.nav-item::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  /* Make the "circle" big, lopsided */
-  transform: translate(-50%, -50%); 
-  width: 4.8rem;      /* Wider for a lopsided/oval look */
-  height: 2.7rem;     /* Taller for lopsided/oval look */
-  border: 2.5px solid #FFFFF4;  /* Your desired outline color */
-  border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.27s;
-  z-index: 0;
-}
-
-.nav-item:hover::after,
-.nav-item:focus::after {
-  opacity: 1;
-  /* Optional: Add animation to "draw" the outline */
-  animation: draw-oval 0.7s cubic-bezier(0.77,0,0.18,1) forwards;
-}
-
-@keyframes draw-oval {
-  from {
-    stroke-dasharray: 120;
-    stroke-dashoffset: 120;
-    opacity: 1;
-  }
-  to {
-    stroke-dasharray: 120;
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-}
-
 /* Keep this if you don't want text color to change on hover */
 .nav-item:hover,
 .nav-item:focus {
   outline: none;
-}
-
-.nav-item,
-.nav-item:hover,
-.nav-item:focus {
-  text-decoration: none;
 }
 
 /* Hamburger and mobile nav hidden on desktop */
