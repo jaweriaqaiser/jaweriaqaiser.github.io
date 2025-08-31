@@ -252,7 +252,7 @@ main {
 }
 
 .hero-image-section {
-  width: 100vw;
+  width: 100%;
   aspect-ratio: 2 / 1;
   background-image: url('../images/profile.jpg');
   background-size: cover;
