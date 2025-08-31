@@ -17,7 +17,7 @@ a:hover { text-decoration: underline; }
   background: #B3700D ;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   z-index: 100;
-  border-bottom: 2px solid #FFFFF4; /* or any color/thickness you like */
+  border-bottom: 4px solid #FFFFF4; /* or any color/thickness you like */
 }
 .site-nav {
   display: flex;
@@ -317,11 +317,21 @@ main {
   color: #FFFFF4;                /* ensure icon color */
 }
 
+@keyframes jitter {
+  0%   { transform: translate(0, 0) rotate(0deg);}
+  20%  { transform: translate(-2px, 2px) rotate(-2deg);}
+  40%  { transform: translate(-2px, -2px) rotate(2deg);}
+  60%  { transform: translate(2px, 2px) rotate(-2deg);}
+  80%  { transform: translate(2px, -2px) rotate(2deg);}
+  100% { transform: translate(0, 0) rotate(0deg);}
+}
+
 .icon:hover,
 .icon:focus {
   background: #B3700D;           /* slightly darker on hover */
   color: #FFFFF4;
   box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  animation: jitter 0.3s linear;
 }
 
 /* Contact links */
