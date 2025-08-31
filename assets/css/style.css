@@ -100,7 +100,7 @@ a:hover { text-decoration: underline; }
   left: 50%;
   top: 50%;
   /* Make the "circle" big, lopsided, and able to overlap text */
-  transform: translate(-50%, -55%) rotate(18deg); /* Adjust rotate angle as desired */
+  transform: translate(-50%, -55%) rotate(162deg); /* Adjust rotate angle as desired */
   width: 4.2rem;      /* Wider for a lopsided/oval look */
   height: 2.7rem;     /* Taller for lopsided/oval look */
   border: 2.5px solid #FFFFF4;  /* Your desired outline color */
@@ -135,6 +135,12 @@ a:hover { text-decoration: underline; }
 .nav-item:hover,
 .nav-item:focus {
   outline: none;
+}
+
+.nav-item,
+.nav-item:hover,
+.nav-item:focus {
+  text-decoration: none;
 }
 
 /* Hamburger and mobile nav hidden on desktop */
