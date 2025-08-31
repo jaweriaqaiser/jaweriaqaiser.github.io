@@ -332,6 +332,85 @@ a:hover { text-decoration: underline; }
   }
 }
 
+/* Research Questions */
+
+.research-questions-section {
+  background: #fbb73b; /* adjust to your preferred orange */
+  padding: 3rem 0;
+  min-height: 100vh;
+  font-family: 'Inter', Arial, sans-serif;
+  background-image: repeating-linear-gradient(
+    135deg, 
+    #fbb73b 0 50px, 
+    #f3a42f 50px 100px
+  );
+}
+
+.research-questions-inner {
+  display: flex;
+  gap: 2.2rem;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1300px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.rq-card {
+  background: #fff;
+  border-radius: 48px;
+  box-shadow: 0 6px 36px 0 rgba(154, 110, 0, 0.09);
+  padding: 2.7rem 2.1rem 2.1rem 2.1rem;
+  width: 350px;
+  min-height: 560px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.rq-icon {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.8rem;
+  color: #d9a10c;
+}
+
+.rq-card h3 {
+  color: #b8860b;
+  font-size: 1.6rem;
+  font-family: 'Merriweather', 'Georgia', serif;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.rq-card ul {
+  margin: 0;
+  padding-left: 1.3em;
+  font-size: 1.1rem;
+  color: #222;
+  list-style-type: disc;
+}
+
+.rq-card ul li {
+  margin-bottom: 0.8em;
+  line-height: 1.45;
+}
+
+@media (max-width: 1150px) {
+  .research-questions-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.2rem;
+  }
+  .rq-card {
+    width: 90vw;
+    max-width: 390px;
+  }
+}
+
 /* Main sections */
 main {
   max-width: 700px;
