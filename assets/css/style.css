@@ -77,6 +77,7 @@ a:hover { text-decoration: underline; }
 }
 
 .nav-item {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -84,22 +85,40 @@ a:hover { text-decoration: underline; }
   font-size: 1.08rem;
   font-weight: 500;
   color: #fffffa;
-  min-width: 2.5rem;   /* Ensures circle shape */
-  min-height: 2.5rem;  /* Ensures circle shape */
-  border-radius: 50%;  /* Makes it circular */
-  padding: 0;          /* Remove default vertical padding to keep circle */
-  margin: 0 0.2rem;    /* Optional: spacing between nav items */
   background: none;
   border: none;
-  transition: color 0.2s, border 0.2s;
+  padding: 0.7rem 0;
+  margin: 0 0.2rem;
   letter-spacing: 0.01em;
-  box-sizing: border-box; /* Ensures border doesn't break the circle */
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* Make the "circle" big and lopsided (oval) */
+  transform: translate(-50%, -55%);
+  width: 3.6rem;      /* Wider for lopsidedness */
+  height: 2.6rem;     /* Taller for lopsidedness */
+  border: 2.5px solid #F1A638;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s;
+  z-index: 0;
+}
+
+.nav-item:hover::after,
+.nav-item:focus::after {
+  opacity: 1;
 }
 
 .nav-item:hover,
 .nav-item:focus {
-  border: 2px solid #FFFFF4; /* Circle outline */
-  background: none;
+  /* (Optional) keep text color if you want */
   outline: none;
 }
 
