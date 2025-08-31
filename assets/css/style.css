@@ -298,8 +298,9 @@ main {
 }
 
 .icon {
-  width: 6rem;
-  height: 6rem;
+  width: 5rem;
+  height: 5rem;
+  font-size: 3rem; 
   display: flex;
   align-items: center;
   justify-content: center;
