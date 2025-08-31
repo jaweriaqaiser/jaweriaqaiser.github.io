@@ -135,25 +135,27 @@
   </footer>
 
   <script>
-    // Replace these with your actual EmailJS values
-    const EMAILJS_SERVICE_ID = 'service_0sjx6j7';
-    const EMAILJS_TEMPLATE_ID = 'template_os1pvz7';
-    const EMAILJS_PUBLIC_KEY = '8J2zu8LzWVGPUklmO';
+    document.addEventListener('DOMContentLoaded', function() {
+      // Replace these with your actual EmailJS values
+      const EMAILJS_SERVICE_ID = 'service_0sjx6j7';
+      const EMAILJS_TEMPLATE_ID = 'template_os1pvz7';
+      const EMAILJS_PUBLIC_KEY = '8J2zu8LzWVGPUklmO';
 
-    emailjs.init(EMAILJS_PUBLIC_KEY);
+      emailjs.init(EMAILJS_PUBLIC_KEY);
 
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = this;
-      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
-        .then(function() {
-          form.reset();
-          document.getElementById('emailjs-message').innerHTML =
-            '<div class="emailjs-success">Thank you! Your message has been sent.</div>';
-        }, function(error) {
-          document.getElementById('emailjs-message').innerHTML =
-            '<div class="emailjs-error">Sorry, an error occurred. Please try again later.</div>';
-        });
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = this;
+        emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+          .then(function() {
+            form.reset();
+            document.getElementById('emailjs-message').innerHTML =
+              '<div class="emailjs-success">Thank you! Your message has been sent.</div>';
+          }, function(error) {
+            document.getElementById('emailjs-message').innerHTML =
+              '<div class="emailjs-error">Sorry, an error occurred. Please try again later.</div>';
+          });
+      });
     });
   </script>
 </body>
