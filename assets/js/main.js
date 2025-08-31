@@ -108,4 +108,25 @@ document.addEventListener('DOMContentLoaded', function() {
       bar.style.width = bar.dataset.skill + '%';
     });
   }
+
+  // === Research Questions Card Scroll-In Animation ===
+  const rqCards = document.querySelectorAll('.rq-card');
+  if ('IntersectionObserver' in window) {
+    const rqObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, idx * 150);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    rqCards.forEach(card => rqObserver.observe(card));
+  } else {
+    rqCards.forEach(card => card.classList.add('visible'));
+  }
 });
+
+
