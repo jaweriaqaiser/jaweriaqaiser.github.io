@@ -312,69 +312,80 @@ a:hover { text-decoration: underline; }
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 1400px;
+  max-width: 1200px;
+  width: 100%;
+  gap: 3rem;
   margin: 0 auto;
-  width: 90vw;
-  gap: 3.5rem;
 }
 
 .intro-text {
-  flex: 1 1 50%;
-  max-width: 670px;
-  margin-left: auto;
-  margin-right: 0;
+  flex: 1 1 54%;
+  max-width: 580px;
+  margin-left: 2vw;
 }
 
 .intro-text h1 {
-  font-size: 4.1rem;
+  font-size: 4rem;
   font-weight: bold;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.3rem;
   line-height: 1.05;
   letter-spacing: -0.03em;
 }
 
 .intro-text p {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   line-height: 1.45;
   color: #232323;
 }
 
+.pronunciation {
+  font-size: 1.1rem;
+  color: #232323;
+  font-style: italic;
+}
+
 .intro-image {
-  flex: 1 1 50%;
+  flex: 1 1 46%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  min-width: 260px;
+  max-width: 420px;
 }
 
 .intro-image img {
-  width: 420px;
-  height: 420px;
-  object-fit: cover;
-  border-radius: 50%;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
   display: block;
-  box-shadow: 0 2px 32px 0 rgba(0,0,0,0.10);
   background: #eee;
-  border: none;
+  box-shadow: 0 2px 32px 0 rgba(0,0,0,0.10);
+  margin: 0;
+  /* No border-radius since image is already a circle */
 }
 
-@media (max-width: 1100px) {
+/* Responsive adjustments */
+@media (max-width: 900px) {
   .intro-inner {
     flex-direction: column;
-    gap: 2.5rem;
-    width: 98vw;
-    max-width: 96vw;
+    gap: 2rem;
+    max-width: 95vw;
   }
   .intro-text {
     margin-left: 0;
-    margin-right: 0;
-    max-width: 98vw;
+    max-width: 95vw;
+  }
+  .intro-image {
+    max-width: 300px;
+    min-width: 180px;
+    width: 100%;
+    justify-content: center;
   }
   .intro-image img {
-    width: 300px;
-    height: 300px;
+    max-width: 300px;
   }
   .intro-text h1 {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
   }
   .intro-text p {
     font-size: 1.08rem;
