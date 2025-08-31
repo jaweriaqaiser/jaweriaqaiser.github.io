@@ -297,6 +297,85 @@ a:hover { text-decoration: underline; }
   }
 }
 
+/* Intro section*/
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  min-height: 80vh;
+  padding: 3rem 2rem;
+  background: #fff;
+}
+
+.intro-text {
+  flex: 1 1 55%;
+  max-width: 650px;
+}
+
+.intro-text h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.intro-text p {
+  font-size: 1.35rem;
+  line-height: 1.45;
+  color: #232323;
+}
+
+.pronunciation {
+  font-size: 1.1rem;
+  color: #232323;
+  font-style: italic;
+}
+
+.pron-highlight {
+  text-decoration: underline wavy #b70000 1.5px;
+  color: #b70000;
+}
+
+.intro-image {
+  flex: 1 1 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-image img {
+  width: 460px;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0 2px 32px 0 rgba(0,0,0,0.10);
+  background: #eee;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .intro-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    min-height: auto;
+    padding: 2rem 1rem;
+  }
+  .intro-image img {
+    width: 320px;
+    height: 320px;
+  }
+  .intro-text h1 {
+    font-size: 2.3rem;
+  }
+  .intro-text p {
+    font-size: 1.08rem;
+  }
+}
+
 /* Main sections */
 main {
   max-width: 700px;
