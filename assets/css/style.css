@@ -335,10 +335,9 @@ a:hover { text-decoration: underline; }
 /* Research Questions */
 
 .research-questions-section {
-  background: #fbb73b; /* adjust to your preferred orange */
-  padding: 3rem 0;
+  background: #fbb73b;
   min-height: 100vh;
-  font-family: 'Inter', Arial, sans-serif;
+  padding: 3rem 0;
   background-image: repeating-linear-gradient(
     135deg, 
     #fbb73b 0 50px, 
@@ -358,7 +357,6 @@ a:hover { text-decoration: underline; }
 
 .rq-card {
   background: #fff;
-  border-radius: 48px;
   box-shadow: 0 6px 36px 0 rgba(154, 110, 0, 0.09);
   padding: 2.7rem 2.1rem 2.1rem 2.1rem;
   width: 350px;
@@ -368,6 +366,16 @@ a:hover { text-decoration: underline; }
   flex-direction: column;
   align-items: center;
   text-align: left;
+
+  /* Animation initial state */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.7s cubic-bezier(.25,.8,.25,1), transform 0.7s cubic-bezier(.25,.8,.25,1);
+}
+
+.rq-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .rq-icon {
