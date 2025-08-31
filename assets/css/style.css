@@ -7,14 +7,14 @@ body {
   line-height: 1.65;
   min-height: 100vh;
 }
-a { color: var(--accent, #99C4E4); text-decoration: none; }
+a { color: var(--accent, #B3700D); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* Top Navigation bar */
 .site-header {
   position: sticky;
   top: 0;
-  background: #99C4E4;
+  background: #B3700D;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   z-index: 100;
 }
@@ -220,7 +220,7 @@ a:hover { text-decoration: underline; }
   }
   .nav-menu-mobile .nav-item:hover,
   .nav-menu-mobile .nav-item:focus {
-    color: #99C4E4;
+    color: #B3700D;
   }
 }
 
@@ -280,7 +280,7 @@ main {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--accent, #99C4E4);
+  color: var(--accent, #B3700D);
 }
 .section p, .section ul {
   font-size: 1.08rem;
@@ -305,8 +305,8 @@ main {
 }
 .bio-links li a:hover,
 .bio-links li a:focus {
-  color: var(--accent, #99C4E4);
-  border-bottom-color: var(--accent, #99C4E4);
+  color: var(--accent, #B3700D);
+  border-bottom-color: var(--accent, #B3700D);
 }
 
 /* Footer */
@@ -404,7 +404,7 @@ main {
 }
 .skill-level {
   height: 100%;
-  background: linear-gradient(90deg, #99C4E4 60%, #99C4E4 100%);
+  background: linear-gradient(90deg, #B3700D 60%, #B3700D 100%);
   color: #fff;
   text-align: right;
   padding-right: 8px;
