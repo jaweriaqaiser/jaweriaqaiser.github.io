@@ -55,7 +55,17 @@
     .contact-form button:hover {
       background: #5d4ddb;
     }
+    .emailjs-success,
+    .emailjs-error {
+      text-align: center;
+      margin-top: 1em;
+      font-size: 1.07em;
+    }
+    .emailjs-success { color: #319c4a; }
+    .emailjs-error { color: #d0342c; }
   </style>
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
   <!-- Top navigation bar -->
@@ -92,21 +102,14 @@
         For inquiries about my research, teaching, or potential collaborations, please feel free to reach out via email, the form below, or connect with me through the links below.
       </p>
       
-      <form name="contact" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact">
-        <p>
-          <label>Your Name: <input type="text" name="name" /></label>
-        </p>
-        <p>
-          <label>Your Email: <input type="email" name="email" /></label>
-        </p>
-        <p>
-          <label>Message: <textarea name="message"></textarea></label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
+      <form class="contact-form" id="contact-form">
+        <input type="text" name="from_name" placeholder="Name" required autocomplete="name">
+        <input type="email" name="reply_to" placeholder="Email" required autocomplete="email">
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
       </form>
+      <div id="emailjs-message"></div>
       
       <div style="margin: 2em 0;">
         <a href="mailto:jaweria.qaiser@mail.utoronto.ca" class="contact-email" style="font-size: 1.15em; font-weight: 600;">
@@ -131,6 +134,27 @@
     <span>&copy; 2025 Jaweria Qaiser</span>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    // Replace these with your actual EmailJS values
+    const EMAILJS_SERVICE_ID = 'service_0sjx6j7';
+    const EMAILJS_TEMPLATE_ID = 'template_os1pvz7';
+    const EMAILJS_PUBLIC_KEY = '8J2zu8LzWVGPUklmO';
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = this;
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+        .then(function() {
+          form.reset();
+          document.getElementById('emailjs-message').innerHTML =
+            '<div class="emailjs-success">Thank you! Your message has been sent.</div>';
+        }, function(error) {
+          document.getElementById('emailjs-message').innerHTML =
+            '<div class="emailjs-error">Sorry, an error occurred. Please try again later.</div>';
+        });
+    });
+  </script>
 </body>
 </html>
