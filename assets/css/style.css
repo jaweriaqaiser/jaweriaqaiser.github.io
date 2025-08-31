@@ -17,6 +17,7 @@ a:hover { text-decoration: underline; }
   background: #B3700D ;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   z-index: 100;
+  border-bottom: 2px solid #FFFFF4; /* or any color/thickness you like */
 }
 .site-nav {
   display: flex;
