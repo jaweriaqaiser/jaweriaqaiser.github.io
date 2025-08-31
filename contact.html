@@ -8,64 +8,52 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    .contact-form {
-      margin: 2em auto 0 auto;
-      max-width: 400px;
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.9em 1em;
-      font-family: 'Inter', sans-serif;
-      font-size: 1em;
-      border: none;
-      border-radius: 3px;
-      background: #fff;
-      box-shadow: 0 1px 4px rgba(100, 100, 130, 0.05);
-      resize: none;
-      transition: box-shadow 0.18s;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      box-shadow: 0 2px 8px rgba(55, 80, 180, 0.10);
-    }
-    .contact-form textarea {
-      min-height: 90px;
-      max-height: 250px;
-    }
-    .contact-form button {
-      margin: 0 auto;
-      padding: 0.75em 2.5em;
-      background: #232323;
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      font-size: 1.12em;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: background 0.18s;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      display: block;
-    }
-    .contact-form button:hover {
-      background: #5d4ddb;
-    }
-    .emailjs-success,
-    .emailjs-error {
+    .contact-section {
+      max-width: 600px;
+      margin: 2.5em auto 2em auto;
       text-align: center;
-      margin-top: 1em;
-      font-size: 1.07em;
     }
-    .emailjs-success { color: #319c4a; }
-    .emailjs-error { color: #d0342c; }
+    .contact-section h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2em;
+      margin-bottom: 0.3em;
+      letter-spacing: 0.05em;
+    }
+    .contact-email {
+      display: inline-block;
+      margin: 1.5em 0 2em 0;
+      font-size: 1.18em;
+      font-weight: 600;
+      text-decoration: none;
+      color: #232323;
+    }
+    .contact-email:hover {
+      color: #5d4ddb;
+    }
+    .bio-links {
+      list-style: none;
+      padding: 0;
+      margin: 2em 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.4em;
+      font-size: 1.08em;
+    }
+    .bio-links li a {
+      color: #303040;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .bio-links li a:hover {
+      color: #5d4ddb;
+    }
+    @media (max-width: 600px) {
+      .contact-section {
+        padding: 0 0.5em;
+      }
+    }
   </style>
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
   <!-- Top navigation bar -->
@@ -95,28 +83,17 @@
   </header>
 
   <main>
-    <section id="contact" class="section" style="max-width: 600px; margin: 2em auto; text-align: center;">
-      <span class="title"><h1 style="text-align: center;">Contact</h1></span>
-      <br>
+    <section class="contact-section">
+      <h1>Contact</h1>
       <p>
-        For inquiries about my research, teaching, or potential collaborations, please feel free to reach out via email, the form below, or connect with me through the links below.
+        For inquiries about my research, teaching, or potential collaborations,<br>
+        please email me or connect through the links below.<br>
+        I look forward to connecting with you!
       </p>
-      
-      <form class="contact-form" id="contact-form">
-        <input type="text" name="from_name" placeholder="Name" required autocomplete="name">
-        <input type="email" name="reply_to" placeholder="Email" required autocomplete="email">
-        <input type="text" name="subject" placeholder="Subject" required>
-        <textarea name="message" placeholder="Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-      <div id="emailjs-message"></div>
-      
-      <div style="margin: 2em 0;">
-        <a href="mailto:jaweria.qaiser@mail.utoronto.ca" class="contact-email" style="font-size: 1.15em; font-weight: 600;">
-          📧 jaweria.qaiser@mail.utoronto.ca
-        </a>
-      </div>
-      <ul class="bio-links" style="list-style: none; padding: 0; margin: 2em 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2em;">
+      <a href="mailto:jaweria.qaiser@mail.utoronto.ca" class="contact-email">
+        📧 jaweria.qaiser@mail.utoronto.ca
+      </a>
+      <ul class="bio-links">
         <li><a href="https://scholar.google.com/citations?user=OHEQbFgAAAAJ&hl=en" title="Google Scholar" target="_blank" rel="noopener">Google Scholar</a></li>
         <li><a href="https://orcid.org/my-orcid?orcid=0000-0003-2820-3021" title="ORCID" target="_blank" rel="noopener">ORCID</a></li>
         <li><a href="https://osf.io/ufx5d/" title="OSF" target="_blank" rel="noopener">OSF</a></li>
@@ -124,9 +101,6 @@
         <li><a href="https://jenniferstellar.com/people-2/" title="HEAL Lab" target="_blank" rel="noopener">HEAL Lab</a></li>
         <li><a href="https://www.utm.utoronto.ca/psychology/people/jaweria-qaiser" title="University Profile" target="_blank" rel="noopener">University Profile</a></li>
       </ul>
-      <p style="font-size: 0.95em; color: #555;">
-        I look forward to connecting with you!
-      </p>
     </section>
   </main>
 
@@ -134,29 +108,6 @@
     <span>&copy; 2025 Jaweria Qaiser</span>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Replace these with your actual EmailJS values
-      const EMAILJS_SERVICE_ID = 'service_0sjx6j7';
-      const EMAILJS_TEMPLATE_ID = 'template_os1pvz7';
-      const EMAILJS_PUBLIC_KEY = '8J2zu8LzWVGPUklmO';
-
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-
-      document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const form = this;
-        emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
-          .then(function() {
-            form.reset();
-            document.getElementById('emailjs-message').innerHTML =
-              '<div class="emailjs-success">Thank you! Your message has been sent.</div>';
-          }, function(error) {
-            document.getElementById('emailjs-message').innerHTML =
-              '<div class="emailjs-error">Sorry, an error occurred. Please try again later.</div>';
-          });
-      });
-    });
-  </script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
