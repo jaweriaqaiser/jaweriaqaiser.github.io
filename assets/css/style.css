@@ -305,7 +305,6 @@ a:hover { text-decoration: underline; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0 2px 32px 0 rgba(0,0,0,0.10);
   margin: 0;
 }
 
