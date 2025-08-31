@@ -303,7 +303,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #B3700D;           /* circle bg color */
+  background: #F1A638;           /* circle bg color */
   border-radius: 50%;
   text-decoration: none;
   color: #FFFFF4;                /* icon color */
@@ -318,7 +318,7 @@ main {
 
 .icon:hover,
 .icon:focus {
-  background: #8C570A;           /* slightly darker on hover */
+  background: #B3700D;           /* slightly darker on hover */
   color: #FFFFF4;
   box-shadow: 0 4px 16px rgba(0,0,0,0.10);
 }
