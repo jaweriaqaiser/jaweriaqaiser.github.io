@@ -300,22 +300,21 @@ a:hover { text-decoration: underline; }
 /* Intro section*/
 .intro-section {
   width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: #fff;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .intro-inner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   max-width: 1200px;
   width: 100%;
   gap: 3rem;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .intro-text {
@@ -336,35 +335,23 @@ a:hover { text-decoration: underline; }
   font-size: 1.25rem;
   line-height: 1.45;
   color: #232323;
-}
-
-.pronunciation {
-  font-size: 1.1rem;
-  color: #232323;
-  font-style: italic;
+  margin-top: 0;
 }
 
 .intro-image {
   flex: 1 1 46%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   min-width: 260px;
   max-width: 420px;
-}
-
-.intro-image img {
   width: 100%;
-  max-width: 420px;
-  height: auto;
-  display: block;
-  background: #eee;
+  height: 420px; /* Adjust as needed for your image */
+  background-image: url('../images/intro-image.jpg'); /* Change path as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   box-shadow: 0 2px 32px 0 rgba(0,0,0,0.10);
   margin: 0;
-  /* No border-radius since image is already a circle */
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
   .intro-inner {
     flex-direction: column;
@@ -379,10 +366,7 @@ a:hover { text-decoration: underline; }
     max-width: 300px;
     min-width: 180px;
     width: 100%;
-    justify-content: center;
-  }
-  .intro-image img {
-    max-width: 300px;
+    height: 300px;
   }
   .intro-text h1 {
     font-size: 2.2rem;
