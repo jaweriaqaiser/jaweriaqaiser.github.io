@@ -287,6 +287,42 @@ main {
   margin-bottom: 0.7rem;
 }
 
+/* Icons under hero image */
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+.icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ececec;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #444;         /* default icon color */
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  font-size: 1.5rem;
+}
+.icon svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  display: block;
+}
+.icon.email { color: #c23a2b; }
+.icon.linkedin { color: #0077b5; }
+.icon.scholar { color: #4285F4; }
+.icon.orcid { color: #339966; }
+.icon:hover, .icon:focus {
+  background: #ddd;
+  color: #000;
+}
+
 /* Contact links */
 .bio-links {
   list-style: none;
