@@ -1,50 +1,47 @@
 import * as pdfjsLib from './pdfjs/pdf.mjs';
+import { SVGGraphics } from './pdfjs/pdf.worker.mjs';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = './pdfjs/pdf.worker.mjs';
 
 const url = 'cv.pdf';
 const pagesContainer = document.getElementById('pdfjs-pages');
 
-async function renderAllPages(pdfDoc) {
+async function renderAllPagesAsSVG(pdfDoc) {
   pagesContainer.innerHTML = '';
-  const cssWidth = pagesContainer.clientWidth || 270; // CSS size to display PDF
-  const dpr = window.devicePixelRatio || 1;
+  const containerWidth = pagesContainer.clientWidth || 270;
 
   for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
     const page = await pdfDoc.getPage(pageNum);
-
-    // Find the scale for the CSS width, then render at scale*dpr for sharpness
     const unscaledViewport = page.getViewport({ scale: 1 });
-    const scale = cssWidth / unscaledViewport.width;
-    const viewport = page.getViewport({ scale: scale * dpr });
+    const scale = containerWidth / unscaledViewport.width;
+    const viewport = page.getViewport({ scale });
 
-    // Set canvas actual pixel size
-    const canvas = document.createElement('canvas');
-    canvas.width = viewport.width;
-    canvas.height = viewport.height;
+    // SVGGraphics is not exported from the main PDF.js build by default.
+    // To use it, make sure your pdf.worker.mjs is a full build from pdfjs-dist!
+    const opList = await page.getOperatorList();
+    const svgGfx = new pdfjsLib.SVGGraphics(page.commonObjs, page.objs);
+    const svg = await svgGfx.getSVG(opList, viewport);
 
-    // Set canvas display size (CSS pixels)
-    canvas.style.width = `${viewport.width / dpr}px`;
-    canvas.style.height = `${viewport.height / dpr}px`;
-    canvas.style.display = 'block';
-    canvas.style.margin = '0 auto 16px auto';
+    // Convert SVGElement to data URL for <img>
+    const serializer = new XMLSerializer();
+    const svgStr = serializer.serializeToString(svg);
+    const svgDataUri = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgStr)));
 
-    const ctx = canvas.getContext('2d');
-    // No setTransform needed if you use scale*dpr in viewport!
+    const img = document.createElement('img');
+    img.src = svgDataUri;
+    img.className = 'pdf-svg-img';
 
-    await page.render({ canvasContext: ctx, viewport }).promise;
-    pagesContainer.appendChild(canvas);
+    pagesContainer.appendChild(img);
   }
 }
 
-pdfjsLib.getDocument(url).promise.then(renderAllPages);
+pdfjsLib.getDocument(url).promise.then(renderAllPagesAsSVG);
 
-// Smooth scroll effect
+// Smooth scroll as before
 function smoothScrollTo(element, target, duration = 2000) {
   const start = element.scrollTop;
   const change = target - start;
   const startTime = performance.now();
-
   function animateScroll(currentTime) {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
