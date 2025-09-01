@@ -128,49 +128,4 @@ document.addEventListener('DOMContentLoaded', function() {
     rqCards.forEach(card => card.classList.add('visible'));
   }
 
-  // ==== KEEP THIS AT THE END: Horizontal Timeline Scroll Effect ====
-  const timelineSection = document.getElementById('cv-awards-timeline');
-  const timeline = document.getElementById('timeline');
-  const timelineContainer = timeline && timeline.parentElement;
-  const scrollArea = document.getElementById('timeline-scroll-area');
-  
-  if (timelineSection && timeline && timelineContainer && scrollArea) {
-    function getMaxScroll() {
-      return timeline.scrollWidth - timelineContainer.offsetWidth;
-    }
-    
-    function setScrollAreaHeight() {
-      if (window.innerWidth <= 600) {
-        scrollArea.style.height = '1px'; // No scroll effect on mobile
-      } else {
-        scrollArea.style.height = (getMaxScroll() + timelineContainer.offsetHeight) + 'px';
-      }
-    }
-    
-    function onScroll() {
-      if (window.innerWidth <= 600) {
-        timeline.style.transform = 'translateX(0)';
-        return;
-      }
-      const sectionRect = timelineSection.getBoundingClientRect();
-      const sectionTop = window.scrollY + sectionRect.top;
-      const containerHeight = timelineContainer.offsetHeight;
-      const scrollLength = getMaxScroll();
-      const scrollY = window.scrollY;
-      
-      if (scrollY >= sectionTop && scrollY <= sectionTop + scrollLength) {
-        timeline.style.transform = `translateX(-${scrollY - sectionTop}px)`;
-      } else if (scrollY < sectionTop) {
-        timeline.style.transform = 'translateX(0)';
-      } else if (scrollY > sectionTop + scrollLength) {
-        timeline.style.transform = `translateX(-${scrollLength}px)`;
-      }
-    }
-    window.addEventListener('scroll', onScroll);
-    window.addEventListener('resize', setScrollAreaHeight);
-    setTimeout(() => {
-      setScrollAreaHeight();
-      onScroll();
-    }, 30);
-  }
 });
