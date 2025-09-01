@@ -342,7 +342,6 @@ a:hover { text-decoration: underline; }
   flex-direction: column;
   justify-content: center;      /* Centers content vertically */
   align-items: center;          /* Centers content horizontally */
-  min-height: 80vh;             /* Or 100vh if you want it to fill the viewport */
 }
 
 .research-questions-inner {
