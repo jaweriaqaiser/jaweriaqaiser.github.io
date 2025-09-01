@@ -675,13 +675,29 @@ main {
 
 /* Awards timeline */
 
+/* === Awards Timeline Full-Width Section === */
 .cv-awards-timeline {
   position: relative;
-  height: 400px;
-  overflow: hidden;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
   background: #f0f5fa;
-  margin-bottom: 2em;
+  overflow: hidden;
+  padding: 0;
+  z-index: 1;
 }
+
+.cv-awards-timeline .title {
+  margin-top: 1.3em;
+  margin-bottom: 0.7em;
+  text-align: center;
+}
+
 .timeline-sticky-wrapper {
   position: sticky;
   top: 0;
@@ -689,14 +705,22 @@ main {
   display: flex;
   align-items: center;
   z-index: 2;
+  background: inherit;
 }
+
 .timeline-container {
   width: 100vw;
+  max-width: 100vw;
+  min-width: 100vw;
   height: 400px;
   overflow: hidden;
   display: flex;
   align-items: center;
+  /* Remove padding/margin if inherited from section */
+  padding: 0;
+  margin: 0;
 }
+
 .timeline {
   display: flex;
   align-items: flex-start;
@@ -704,7 +728,9 @@ main {
   height: 320px;
   min-width: 1200px;
   transition: transform 0.1s;
+  will-change: transform;
 }
+
 .timeline::before {
   content: '';
   position: absolute;
@@ -717,6 +743,7 @@ main {
   border-radius: 2px;
   width: 100%;
 }
+
 .timeline-event {
   position: relative;
   flex: 1 0 220px;
@@ -730,10 +757,12 @@ main {
   transition: transform 0.2s;
   min-width: 220px;
 }
+
 .timeline-event:hover {
   transform: translateY(-8px) scale(1.03);
   box-shadow: 0 6px 24px rgba(40, 54, 70, 0.13);
 }
+
 .timeline-year {
   font-size: 1.1em;
   font-weight: bold;
@@ -744,46 +773,84 @@ main {
   padding: 3px 14px;
   border-radius: 12px;
 }
+
 .timeline-title {
   font-size: 1em;
   margin: 6px 0 4px 0;
   color: #333;
   font-weight: 500;
 }
+
 .timeline-amount {
   font-size: 0.95em;
   color: #2264a7;
   margin-top: 2px;
   font-weight: 400;
 }
+
+/* === Responsive: Tablet === */
 @media (max-width: 900px) {
   .timeline-event {
     flex: 1 0 140px;
     margin: 0 15px;
     min-width: 140px;
     padding: 22px 8px 12px 8px;
+    font-size: 0.98em;
   }
   .timeline-container,
-  .cv-awards-timeline {
-    height: 320px;
-  }
+  .cv-awards-timeline,
   .timeline-sticky-wrapper {
     height: 320px;
+    min-height: 220px;
+  }
+  .timeline {
+    height: 220px;
+    min-width: 800px;
   }
 }
+
+/* === Responsive: Mobile === */
 @media (max-width: 600px) {
+  .cv-awards-timeline,
+  .timeline-container {
+    height: 220px;
+    min-height: 180px;
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+  .timeline-sticky-wrapper {
+    height: 220px;
+    min-height: 180px;
+  }
+  .timeline {
+    height: 130px;
+    min-width: 600px;
+  }
   .timeline-event {
     flex: 1 0 100px;
     margin: 0 7px;
     min-width: 100px;
+    font-size: 0.86em;
+    padding: 9px 3px 6px 3px;
+    border-radius: 8px;
+  }
+  .timeline-year {
+    font-size: 0.96em;
+    padding: 2px 9px;
+  }
+  .timeline-title {
+    font-size: 0.93em;
+  }
+  .timeline-amount {
     font-size: 0.9em;
-    padding: 15px 4px 8px 4px;
   }
-  .timeline-container,
-  .cv-awards-timeline {
-    height: 220px;
-  }
-  .timeline-sticky-wrapper {
-    height: 220px;
-  }
+}
+
+/* Optional: prevent horizontal scrollbar showing on parent */
+body {
+  overflow-x: hidden;
 }
