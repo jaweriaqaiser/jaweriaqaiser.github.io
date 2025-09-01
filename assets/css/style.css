@@ -402,7 +402,7 @@ a:hover { text-decoration: underline; }
   border-top: none;
   border-left: none;
   border-radius: 0 0 38px 38px; /* bottom semicircle */
-  transform: rotate(60deg);
+  transform: rotate(-120deg);
 }
 
 .rq-card.visible {
