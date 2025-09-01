@@ -13,8 +13,8 @@ async function renderAllPages(pdfDoc) {
   for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
     const page = await pdfDoc.getPage(pageNum);
 
-    // Calculate display and render scale for sharpness
-    const unscaledViewport = page.getViewport({ scale: 0.5 });
+    // Use scale=1 for natural PDF size, then scale to containerWidth and dpr for sharpness
+    const unscaledViewport = page.getViewport({ scale: 1 });
     const displayScale = containerWidth / unscaledViewport.width;
     const renderScale = displayScale * dpr;
     const viewport = page.getViewport({ scale: renderScale });
@@ -28,7 +28,7 @@ async function renderAllPages(pdfDoc) {
     canvas.style.margin = '0 auto 16px auto';
 
     const ctx = canvas.getContext('2d');
-    // Do NOT call ctx.setTransform
+    // No ctx.setTransform needed when using renderScale
 
     await page.render({ canvasContext: ctx, viewport }).promise;
     pagesContainer.appendChild(canvas);
