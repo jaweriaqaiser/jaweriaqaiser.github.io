@@ -685,12 +685,13 @@ main {
   background: #eee;
 }
 
-#pdfjs-canvas {
+.pdfjs-pages {
   width: 100%;
   height: 100%;
-  display: block;
+  overflow-y: auto;
+  scroll-behavior: smooth;
   background: #eee;
-  border-radius: 10px;
+  position: relative;
 }
 
 .pdfjs-link-overlay {
