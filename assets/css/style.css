@@ -674,15 +674,28 @@ main {
 }
 
 /* CV page pdf scrollers */
+.pdfjs-outer-frame {
+  width: 75%; /* Shrink wrapper */
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .pdfjs-window-container {
   position: relative;
-  width: 360px;
-  height: 500px;
-  margin: 2rem auto;
-  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.12);
-  border-radius: 10px;
-  overflow: hidden;
+  width: 270px; /* 75% of 360px */
+  height: 375px; /* 75% of 500px */
   background: #eee;
+  border-radius: 12px;
+  outline: 3px solid #005cff;
+  outline-offset: 14px;
+  padding: 14px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.12);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pdfjs-pages {
@@ -692,6 +705,13 @@ main {
   scroll-behavior: smooth;
   background: #eee;
   position: relative;
+
+  /* Hide scrollbar but keep scrollability */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.pdfjs-pages::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 .pdfjs-link-overlay {
