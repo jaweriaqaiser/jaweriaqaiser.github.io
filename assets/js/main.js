@@ -129,40 +129,48 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ==== KEEP THIS AT THE END: Horizontal Timeline Scroll Effect ====
-const timelineSection = document.getElementById('cv-awards-timeline');
-const timeline = document.getElementById('timeline');
-const timelineContainer = timeline && timeline.parentElement;
-
-if (timelineSection && timeline && timelineContainer) {
-  function getMaxScroll() {
-    return timeline.scrollWidth - timelineContainer.offsetWidth;
-  }
-
-  function setSectionHeight() {
-    const scrollLength = getMaxScroll();
-    timelineSection.style.height = (timelineContainer.offsetHeight + scrollLength) + 'px';
-  }
-
-  window.addEventListener('scroll', function() {
-    const sectionTop = timelineSection.offsetTop;
-    const sectionHeight = timelineSection.offsetHeight;
-    const containerHeight = timelineContainer.offsetHeight;
-    const scrollLength = getMaxScroll();
-
-    if (window.scrollY + window.innerHeight > sectionTop && window.scrollY < sectionTop + sectionHeight - containerHeight) {
-      const scrolled = Math.min(Math.max(window.scrollY - sectionTop, 0), scrollLength);
-      timeline.style.transform = `translateX(-${scrolled}px)`;
-    } else if (window.scrollY < sectionTop) {
-      timeline.style.transform = `translateX(0)`;
-    } else if (window.scrollY > sectionTop + sectionHeight - containerHeight) {
-      timeline.style.transform = `translateX(-${scrollLength}px)`;
+  const timelineSection = document.getElementById('cv-awards-timeline');
+  const timeline = document.getElementById('timeline');
+  const timelineContainer = timeline && timeline.parentElement;
+  const scrollArea = document.getElementById('timeline-scroll-area');
+  
+  if (timelineSection && timeline && timelineContainer && scrollArea) {
+    function getMaxScroll() {
+      return timeline.scrollWidth - timelineContainer.offsetWidth;
     }
-  });
-
-  window.addEventListener('resize', function() {
-    setSectionHeight();
-  });
-
-  setTimeout(setSectionHeight, 30);
-}
+    
+    function setScrollAreaHeight() {
+      if (window.innerWidth <= 600) {
+        scrollArea.style.height = '1px'; // No scroll effect on mobile
+      } else {
+        scrollArea.style.height = (getMaxScroll() + timelineContainer.offsetHeight) + 'px';
+      }
+    }
+    
+    function onScroll() {
+      if (window.innerWidth <= 600) {
+        timeline.style.transform = 'translateX(0)';
+        return;
+      }
+      const sectionRect = timelineSection.getBoundingClientRect();
+      const sectionTop = window.scrollY + sectionRect.top;
+      const containerHeight = timelineContainer.offsetHeight;
+      const scrollLength = getMaxScroll();
+      const scrollY = window.scrollY;
+      
+      if (scrollY >= sectionTop && scrollY <= sectionTop + scrollLength) {
+        timeline.style.transform = `translateX(-${scrollY - sectionTop}px)`;
+      } else if (scrollY < sectionTop) {
+        timeline.style.transform = 'translateX(0)';
+      } else if (scrollY > sectionTop + scrollLength) {
+        timeline.style.transform = `translateX(-${scrollLength}px)`;
+      }
+    }
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', setScrollAreaHeight);
+    setTimeout(() => {
+      setScrollAreaHeight();
+      onScroll();
+    }, 30);
+  }
 });
