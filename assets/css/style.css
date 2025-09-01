@@ -336,14 +336,9 @@ a:hover { text-decoration: underline; }
 /* Research Questions */
 
 .research-questions-section {
-  background: #fbb73b;
+  background: url('../images/research-bg.jpg') center center/cover no-repeat;
   min-height: 100vh;
-  padding: 3rem 0;
-  background-image: repeating-linear-gradient(
-    135deg, 
-    #fbb73b 0 50px, 
-    #f3a42f 50px 100px
-  );
+  padding: 1rem 0;
 }
 
 .research-questions-inner {
