@@ -25,7 +25,7 @@ async function renderAllPages(pdfDoc) {
 }
 
 // Smooth scroll helper
-function smoothScrollTo(element, target, duration = 1200) {
+function smoothScrollTo(element, target, duration = 3000) {
   const start = element.scrollTop;
   const change = target - start;
   const startTime = performance.now();
