@@ -14,7 +14,7 @@ async function renderAllPages(pdfDoc) {
     const page = await pdfDoc.getPage(pageNum);
 
     // Calculate display and render scale for sharpness
-    const unscaledViewport = page.getViewport({ scale: 5 });
+    const unscaledViewport = page.getViewport({ scale: 0.5 });
     const displayScale = containerWidth / unscaledViewport.width;
     const renderScale = displayScale * dpr;
     const viewport = page.getViewport({ scale: renderScale });
