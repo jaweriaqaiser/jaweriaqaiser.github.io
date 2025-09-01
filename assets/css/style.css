@@ -338,7 +338,11 @@ a:hover { text-decoration: underline; }
 .research-questions-section {
   background: url('../images/research-bg.jpg') center center/cover no-repeat;
   min-height: 100vh;
-  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      /* Centers content vertically */
+  align-items: center;          /* Centers content horizontally */
+  min-height: 80vh;             /* Or 100vh if you want it to fill the viewport */
 }
 
 .research-questions-inner {
