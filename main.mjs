@@ -9,15 +9,22 @@ let pdfDoc = null;
 let scale = 1;
 
 async function renderAllPages(pdfDoc) {
-  pagesContainer.innerHTML = ''; // clear previous pages
+  pagesContainer.innerHTML = '';
+  const containerWidth = pagesContainer.clientWidth;
+
   for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
     const page = await pdfDoc.getPage(pageNum);
+    // Calculate scale to fit container width
+    const unscaledViewport = page.getViewport({ scale: 1 });
+    const scale = containerWidth / unscaledViewport.width;
     const viewport = page.getViewport({ scale });
+
     const canvas = document.createElement('canvas');
     canvas.width = viewport.width;
     canvas.height = viewport.height;
     canvas.style.display = 'block';
     canvas.style.margin = '0 auto 16px auto';
+
     const ctx = canvas.getContext('2d');
     await page.render({ canvasContext: ctx, viewport }).promise;
     pagesContainer.appendChild(canvas);
