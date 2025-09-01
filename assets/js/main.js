@@ -127,4 +127,42 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
     rqCards.forEach(card => card.classList.add('visible'));
   }
+
+  // ==== KEEP THIS AT THE END: Horizontal Timeline Scroll Effect ====
+const timelineSection = document.getElementById('cv-awards-timeline');
+const timeline = document.getElementById('timeline');
+const timelineContainer = timeline && timeline.parentElement;
+
+if (timelineSection && timeline && timelineContainer) {
+  function getMaxScroll() {
+    return timeline.scrollWidth - timelineContainer.offsetWidth;
+  }
+
+  function setSectionHeight() {
+    const scrollLength = getMaxScroll();
+    timelineSection.style.height = (timelineContainer.offsetHeight + scrollLength) + 'px';
+  }
+
+  window.addEventListener('scroll', function() {
+    const sectionTop = timelineSection.offsetTop;
+    const sectionHeight = timelineSection.offsetHeight;
+    const containerHeight = timelineContainer.offsetHeight;
+    const scrollLength = getMaxScroll();
+
+    if (window.scrollY + window.innerHeight > sectionTop && window.scrollY < sectionTop + sectionHeight - containerHeight) {
+      const scrolled = Math.min(Math.max(window.scrollY - sectionTop, 0), scrollLength);
+      timeline.style.transform = `translateX(-${scrolled}px)`;
+    } else if (window.scrollY < sectionTop) {
+      timeline.style.transform = `translateX(0)`;
+    } else if (window.scrollY > sectionTop + sectionHeight - containerHeight) {
+      timeline.style.transform = `translateX(-${scrollLength}px)`;
+    }
+  });
+
+  window.addEventListener('resize', function() {
+    setSectionHeight();
+  });
+
+  setTimeout(setSectionHeight, 30);
+}
 });
