@@ -14,25 +14,26 @@ async function renderAllPages(pdfDoc) {
 
   for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
     const page = await pdfDoc.getPage(pageNum);
-    // Calculate scale to fit container width
     const unscaledViewport = page.getViewport({ scale: 1 });
     const scale = containerWidth / unscaledViewport.width;
     const viewport = page.getViewport({ scale });
 
     const canvas = document.createElement('canvas');
-    canvas.width = viewport.width;
-    canvas.height = viewport.height;
-    canvas.style.display = 'block';
-    canvas.style.margin = '0 auto 16px auto';
-
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = viewport.width * dpr;
+    canvas.height = viewport.height * dpr;
+    canvas.style.width = `${viewport.width}px`;
+    canvas.style.height = `${viewport.height}px`;
     const ctx = canvas.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
     await page.render({ canvasContext: ctx, viewport }).promise;
     pagesContainer.appendChild(canvas);
   }
 }
 
 // Smooth scroll helper
-function smoothScrollTo(element, target, duration = 3000) {
+function smoothScrollTo(element, target, duration = 5000) {
   const start = element.scrollTop;
   const change = target - start;
   const startTime = performance.now();
