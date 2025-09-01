@@ -672,3 +672,118 @@ main {
   height: 100%;
   border: 0;
 }
+
+/* Awards timeline */
+
+.cv-awards-timeline {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  background: #f0f5fa;
+  margin-bottom: 2em;
+}
+.timeline-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+.timeline-container {
+  width: 100vw;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.timeline {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  height: 320px;
+  min-width: 1200px;
+  transition: transform 0.1s;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #c9d6df;
+  z-index: 0;
+  border-radius: 2px;
+  width: 100%;
+}
+.timeline-event {
+  position: relative;
+  flex: 1 0 220px;
+  margin: 0 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(50, 50, 93, 0.07);
+  padding: 28px 18px 18px 18px;
+  text-align: center;
+  z-index: 1;
+  transition: transform 0.2s;
+  min-width: 220px;
+}
+.timeline-event:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(40, 54, 70, 0.13);
+}
+.timeline-year {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  background: #eaf6ff;
+  display: inline-block;
+  padding: 3px 14px;
+  border-radius: 12px;
+}
+.timeline-title {
+  font-size: 1em;
+  margin: 6px 0 4px 0;
+  color: #333;
+  font-weight: 500;
+}
+.timeline-amount {
+  font-size: 0.95em;
+  color: #2264a7;
+  margin-top: 2px;
+  font-weight: 400;
+}
+@media (max-width: 900px) {
+  .timeline-event {
+    flex: 1 0 140px;
+    margin: 0 15px;
+    min-width: 140px;
+    padding: 22px 8px 12px 8px;
+  }
+  .timeline-container,
+  .cv-awards-timeline {
+    height: 320px;
+  }
+  .timeline-sticky-wrapper {
+    height: 320px;
+  }
+}
+@media (max-width: 600px) {
+  .timeline-event {
+    flex: 1 0 100px;
+    margin: 0 7px;
+    min-width: 100px;
+    font-size: 0.9em;
+    padding: 15px 4px 8px 4px;
+  }
+  .timeline-container,
+  .cv-awards-timeline {
+    height: 220px;
+  }
+  .timeline-sticky-wrapper {
+    height: 220px;
+  }
+}
