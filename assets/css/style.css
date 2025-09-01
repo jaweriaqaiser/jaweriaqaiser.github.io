@@ -376,7 +376,7 @@ a:hover { text-decoration: underline; }
 /* Common curve styles */
 .decor-curve {
   position: absolute;
-  width: 38px;  /* adjust size as needed */
+  width: 45px;  /* adjust size as needed */
   height: 19px; /* half of width for semicircle */
   border: 4px solid #fff;
   border-radius: 38px 38px 0 0; /* top semicircle */
