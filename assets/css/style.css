@@ -675,9 +675,8 @@ main {
 
 /* CV page pdf scrollers */
 .pdfjs-outer-frame {
-  width: 75vw; /* Responsive: 75% of viewport width */
-  max-width: 400px;
-  margin: 3rem auto;
+  width: 75%; /* Shrink wrapper */
+  margin: 2rem auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -690,8 +689,8 @@ main {
   background: #eee;
   border-radius: 12px;
   outline: 3px solid #005cff;
-  outline-offset: 14px;  /* Creates a gap between outline and canvas */
-  padding: 14px;         /* Gap between outline and canvas */
+  outline-offset: 14px;
+  padding: 14px;
   box-shadow: 0 2px 16px 0 rgba(0,0,0,0.12);
   overflow: hidden;
   display: flex;
@@ -712,7 +711,7 @@ main {
   -ms-overflow-style: none; /* IE 10+ */
 }
 .pdfjs-pages::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none; /* Safari and Chrome */
 }
 
 .pdfjs-link-overlay {
