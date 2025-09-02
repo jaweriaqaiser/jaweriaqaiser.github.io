@@ -128,8 +128,10 @@ document.addEventListener('DOMContentLoaded', function() {
     rqCards.forEach(card => card.classList.add('visible'));
   }
 
-  // === Character Video Hover Logic with Seamless Transition and Preload ===
-  const videoElement = document.getElementById('characterVideo');
+  // === Character Video Cross-fade with Preload on Hover ===
+  const videoFadeContainer = document.querySelector('.video-fade-container');
+  const videoA = document.getElementById('videoA');
+  const videoB = document.getElementById('videoB');
   const neutralSrc = 'assets/images/neutral.mp4';
   const videos = [
     'assets/images/video1.mp4',
@@ -143,46 +145,71 @@ document.addEventListener('DOMContentLoaded', function() {
     'assets/images/video9.mp4',
     'assets/images/video10.mp4'
   ];
+  let currentVideo = videoA;
+  let nextVideo = videoB;
   let isPlayingSpecial = false;
 
-  if (videoElement) {
-    // Preload random videos (hidden)
-    videos.forEach(src => {
-      const preload = document.createElement('video');
-      preload.src = src;
-      preload.preload = 'auto';
-      preload.style.display = 'none';
-      document.body.appendChild(preload);
-    });
+  // JS preload (hidden video elements)
+  videos.forEach(src => {
+    const pre = document.createElement('video');
+    pre.src = src;
+    pre.preload = 'auto';
+    pre.style.display = 'none';
+    document.body.appendChild(pre);
+  });
 
-    // Ensure neutral video is looping and set as default
-    videoElement.loop = true;
-    videoElement.src = neutralSrc;
+  function showNeutral() {
+    currentVideo.src = neutralSrc;
+    currentVideo.loop = true;
+    currentVideo.classList.add('visible');
+    nextVideo.classList.remove('visible');
+    currentVideo.muted = true;
+    currentVideo.play();
+    isPlayingSpecial = false;
+  }
 
-    videoElement.addEventListener('mouseenter', () => {
+  // Initial load: show neutral 
+  if (videoA && videoB) {
+    showNeutral();
+
+    // Cross-fade function
+    function crossFadeTo(src, isLoop) {
+      nextVideo.src = src;
+      nextVideo.loop = isLoop;
+      nextVideo.currentTime = 0;
+      nextVideo.muted = true;
+      nextVideo.oncanplay = function() {
+        nextVideo.oncanplay = null;
+        nextVideo.play();
+        nextVideo.classList.add('visible');
+        currentVideo.classList.remove('visible');
+        // Swap refs after fade
+        setTimeout(() => {
+          let temp = currentVideo;
+          currentVideo = nextVideo;
+          nextVideo = temp;
+        }, 500); // Match CSS transition
+      };
+    }
+
+    // Hover: cross-fade to random video
+    videoFadeContainer.addEventListener('mouseenter', () => {
       if (!isPlayingSpecial) {
         const randomIndex = Math.floor(Math.random() * videos.length);
         const randomVideo = videos[randomIndex];
-        videoElement.loop = false;
-
-        // Seamlessly transition: wait for canplay before starting special video
-        const onCanPlay = () => {
-          videoElement.play();
-          videoElement.removeEventListener('canplay', onCanPlay);
-          isPlayingSpecial = true;
-        };
-
-        videoElement.addEventListener('canplay', onCanPlay);
-        videoElement.src = randomVideo;
-        // Don't call play() until canplay!
+        crossFadeTo(randomVideo, false);
+        isPlayingSpecial = true;
       }
     });
 
-    videoElement.addEventListener('ended', () => {
-      videoElement.loop = true;
-      videoElement.src = neutralSrc;
-      videoElement.play();
-      isPlayingSpecial = false;
+    // Ended: cross-fade back to neutral
+    [videoA, videoB].forEach(video => {
+      video.addEventListener('ended', () => {
+        if (!video.loop) {
+          crossFadeTo(neutralSrc, true);
+          isPlayingSpecial = false;
+        }
+      });
     });
   }
 });
