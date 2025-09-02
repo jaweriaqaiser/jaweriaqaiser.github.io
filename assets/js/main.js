@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // === Character Video Hover Logic ===
   const videoElement = document.getElementById('characterVideo');
   if (videoElement) {
-    const neutralSrc = 'images/neutral.mp4';
+    const neutralSrc = 'assets/images/neutral.mp4';
     const videos = [
       'assets/images/video1.mp4',
       'assets/images/video2.mp4',
