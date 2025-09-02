@@ -128,93 +128,66 @@ document.addEventListener('DOMContentLoaded', function() {
     rqCards.forEach(card => card.classList.add('visible'));
   }
 
-  // === Character Video Cross-fade with Improved Seamless Logic ===
+  // === Character Video Cross-fade with True Preload, No Glitch ===
   const videoFadeContainer = document.querySelector('.video-fade-container');
-  const videoA = document.getElementById('videoA');
-  const videoB = document.getElementById('videoB');
-  const neutralSrc = 'assets/images/neutral.mp4';
-  const videos = [
-    'assets/images/video1.mp4',
-    'assets/images/video2.mp4',
-    'assets/images/video3.mp4',
-    'assets/images/video4.mp4',
-    'assets/images/video5.mp4',
-    'assets/images/video6.mp4',
-    'assets/images/video7.mp4',
-    'assets/images/video8.mp4',
-    'assets/images/video9.mp4',
-    'assets/images/video10.mp4'
+  const neutralVideo = document.getElementById('neutralVideo');
+  const randomVideos = [
+    document.getElementById('random1'),
+    document.getElementById('random2'),
+    document.getElementById('random3'),
+    document.getElementById('random4'),
+    document.getElementById('random5'),
+    document.getElementById('random6'),
+    document.getElementById('random7'),
+    document.getElementById('random8'),
+    document.getElementById('random9'),
+    document.getElementById('random10')
   ];
-  let currentVideo = videoA;
-  let nextVideo = videoB;
-  let isPlayingSpecial = false;
+  let lastRandom = null;
 
-  // JS preload (hidden video elements)
-  videos.forEach(src => {
-    const pre = document.createElement('video');
-    pre.src = src;
-    pre.preload = 'auto';
-    pre.style.display = 'none';
-    document.body.appendChild(pre);
-  });
-
-  function showNeutral() {
-    currentVideo.src = neutralSrc;
-    currentVideo.loop = true;
-    currentVideo.classList.add('visible');
-    nextVideo.classList.remove('visible');
-    currentVideo.muted = true;
-    currentVideo.play();
-    isPlayingSpecial = false;
+  function fadeIn(el) {
+    el.classList.add('visible');
+  }
+  function fadeOut(el) {
+    el.classList.remove('visible');
   }
 
-  // Initial load: show neutral 
-  if (videoA && videoB && videoFadeContainer) {
-    showNeutral();
+  if (videoFadeContainer && neutralVideo && randomVideos.every(v => v)) {
+    // Ensure neutral video is looping and playing
+    neutralVideo.loop = true;
+    neutralVideo.muted = true;
+    neutralVideo.play();
 
-    // Cross-fade function, fade only after nextVideo is playing
-    function crossFadeTo(src, isLoop) {
-      nextVideo.src = src;
-      nextVideo.loop = isLoop;
-      nextVideo.currentTime = 0;
-      nextVideo.muted = true;
-
-      // Only fade in after the video is visually playing
-      const onPlaying = function () {
-        nextVideo.removeEventListener('playing', onPlaying);
-        nextVideo.classList.add('visible');
-        currentVideo.classList.remove('visible');
-        setTimeout(() => {
-          let temp = currentVideo;
-          currentVideo = nextVideo;
-          nextVideo = temp;
-        }, 500); // match your CSS fade duration
-      };
-
-      nextVideo.addEventListener('playing', onPlaying);
-
-      nextVideo.load();
-      nextVideo.play();
-    }
-
-    // Hover: cross-fade to random video
+    // On hover: pick a random video, fade out neutral, fade in random & play
     videoFadeContainer.addEventListener('mouseenter', () => {
-      if (!isPlayingSpecial) {
-        const randomIndex = Math.floor(Math.random() * videos.length);
-        const randomVideo = videos[randomIndex];
-        crossFadeTo(randomVideo, false);
-        isPlayingSpecial = true;
-      }
+      if (lastRandom !== null) return; // Already playing a random
+      const idx = Math.floor(Math.random() * randomVideos.length);
+      const rand = randomVideos[idx];
+      lastRandom = rand;
+      fadeOut(neutralVideo);
+      fadeIn(rand);
+      rand.currentTime = 0;
+      rand.play();
     });
 
-    // Ended: cross-fade back to neutral
-    [videoA, videoB].forEach(video => {
-      video.addEventListener('ended', () => {
-        if (!video.loop) {
-          crossFadeTo(neutralSrc, true);
-          isPlayingSpecial = false;
-        }
+    // On random video end: fade back to neutral, pause random
+    randomVideos.forEach(rand => {
+      rand.addEventListener('ended', () => {
+        fadeIn(neutralVideo);
+        fadeOut(rand);
+        rand.pause();
+        lastRandom = null;
       });
+    });
+
+    // Optional: On mouseleave, if random is playing, fade back to neutral and pause random
+    videoFadeContainer.addEventListener('mouseleave', () => {
+      if (lastRandom) {
+        fadeIn(neutralVideo);
+        fadeOut(lastRandom);
+        lastRandom.pause();
+        lastRandom = null;
+      }
     });
   }
 });
