@@ -133,16 +133,16 @@ document.addEventListener('DOMContentLoaded', function() {
   if (videoElement) {
     const neutralSrc = 'images/neutral.mp4';
     const videos = [
-      'images/video1.mp4',
-      'images/video2.mp4',
-      'images/video3.mp4',
-      'images/video4.mp4',
-      'images/video5.mp4',
-      'images/video6.mp4',
-      'images/video7.mp4',
-      'images/video8.mp4',
-      'images/video9.mp4',
-      'images/video10.mp4'
+      'assets/images/video1.mp4',
+      'assets/images/video2.mp4',
+      'assets/images/video3.mp4',
+      'assets/images/video4.mp4',
+      'assets/images/video5.mp4',
+      'assets/images/video6.mp4',
+      'assets/images/video7.mp4',
+      'assets/images/video8.mp4',
+      'assets/images/video9.mp4',
+      'assets/images/video10.mp4'
     ];
     let isPlayingSpecial = false;
 
