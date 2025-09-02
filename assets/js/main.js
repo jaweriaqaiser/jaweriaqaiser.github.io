@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
     rqCards.forEach(card => card.classList.add('visible'));
   }
 
-  // === Character Video Cross-fade with Preload on Hover ===
+  // === Character Video Cross-fade with Improved Seamless Logic ===
   const videoFadeContainer = document.querySelector('.video-fade-container');
   const videoA = document.getElementById('videoA');
   const videoB = document.getElementById('videoB');
@@ -169,27 +169,32 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Initial load: show neutral 
-  if (videoA && videoB) {
+  if (videoA && videoB && videoFadeContainer) {
     showNeutral();
 
-    // Cross-fade function
+    // Cross-fade function, fade only after nextVideo is playing
     function crossFadeTo(src, isLoop) {
       nextVideo.src = src;
       nextVideo.loop = isLoop;
       nextVideo.currentTime = 0;
       nextVideo.muted = true;
-      nextVideo.oncanplay = function() {
-        nextVideo.oncanplay = null;
-        nextVideo.play();
+
+      // Only fade in after the video is visually playing
+      const onPlaying = function () {
+        nextVideo.removeEventListener('playing', onPlaying);
         nextVideo.classList.add('visible');
         currentVideo.classList.remove('visible');
-        // Swap refs after fade
         setTimeout(() => {
           let temp = currentVideo;
           currentVideo = nextVideo;
           nextVideo = temp;
-        }, 500); // Match CSS transition
+        }, 500); // match your CSS fade duration
       };
+
+      nextVideo.addEventListener('playing', onPlaying);
+
+      nextVideo.load();
+      nextVideo.play();
     }
 
     // Hover: cross-fade to random video
