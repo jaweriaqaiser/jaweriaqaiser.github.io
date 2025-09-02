@@ -59,9 +59,10 @@
 
   <section class="intro-section section">
     <div class="intro-inner">
-      <div class="video-fade-container">
+      <div class="video-fade-container" style="position:relative; width:100%; min-width:260px; max-width:450px; height:490px;">
+        <!-- Neutral video (always loaded and looped) -->
         <video
-          id="videoA"
+          id="neutralVideo"
           class="intro-video visible"
           width="640"
           height="490"
@@ -70,17 +71,20 @@
           loop
           autoplay
           muted
-          playsinline></video>
-        <video
-          id="videoB"
-          class="intro-video"
-          width="640"
-          height="490"
-          preload="auto"
-          loop
-          autoplay
-          muted
-          playsinline></video>
+          playsinline
+          style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50% / 45%;background:#eaeaea;box-shadow:0 2px 10px rgba(0,0,0,0.07);opacity:1;transition:opacity 0.5s;z-index:1;"
+          ></video>
+        <!-- Preloaded random videos, hidden by default -->
+        <video id="random1" class="intro-video" width="640" height="490" src="assets/images/video1.mp4" preload="auto" muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50% / 45%;background:#eaeaea;box-shadow:0 2px 10px rgba(0,0,0,0.07);opacity:0;transition:opacity 0.5s;z-index:2;"></video>
+        <video id="random2" class="intro-video" width="640" height="490" src="assets/images/video2.mp4" preload="auto" muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50% / 45%;background:#eaeaea;box-shadow:0 2px 10px rgba(0,0,0,0.07);opacity:0;transition:opacity 0.5s;z-index:2;"></video>
+        <video id="random3" class="intro-video" width="640" height="490" src="assets/images/video3.mp4" preload="auto" muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50% / 45%;background:#eaeaea;box-shadow:0 2px 10px rgba(0,0,0,0.07);opacity:0;transition:opacity 0.5s;z-index:2;"></video>
+        <video id="random4" class="intro-video" width="640" height="490" src="assets/images/video4.mp4" preload="auto" muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50% / 45%;background:#eaeaea;box-shadow:0 2px 10px rgba(0,0,0,0.07);opacity:0;transition:opacity 0.5s;z-index:2;"></video>
+        <video id="random5" class="intro-video" width="640" height="490" src="assets/images/video5.mp4" preload="auto" muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50% / 45%;background:#eaeaea;box-shadow:0 2px 10px rgba(0,0,0,0.07);opacity:0;transition:opacity 0.5s;z-index:2;"></video>
+        <video id="random6" class="intro-video" width="640" height="490" src="assets/images/video6.mp4" preload="auto" muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50% / 45%;background:#eaeaea;box-shadow:0 2px 10px rgba(0,0,0,0.07);opacity:0;transition:opacity 0.5s;z-index:2;"></video>
+        <video id="random7" class="intro-video" width="640" height="490" src="assets/images/video7.mp4" preload="auto" muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50% / 45%;background:#eaeaea;box-shadow:0 2px 10px rgba(0,0,0,0.07);opacity:0;transition:opacity 0.5s;z-index:2;"></video>
+        <video id="random8" class="intro-video" width="640" height="490" src="assets/images/video8.mp4" preload="auto" muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50% / 45%;background:#eaeaea;box-shadow:0 2px 10px rgba(0,0,0,0.07);opacity:0;transition:opacity 0.5s;z-index:2;"></video>
+        <video id="random9" class="intro-video" width="640" height="490" src="assets/images/video9.mp4" preload="auto" muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50% / 45%;background:#eaeaea;box-shadow:0 2px 10px rgba(0,0,0,0.07);opacity:0;transition:opacity 0.5s;z-index:2;"></video>
+        <video id="random10" class="intro-video" width="640" height="490" src="assets/images/video10.mp4" preload="auto" muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50% / 45%;background:#eaeaea;box-shadow:0 2px 10px rgba(0,0,0,0.07);opacity:0;transition:opacity 0.5s;z-index:2;"></video>
       </div>
       <div class="intro-text">
         <span class="title"><h1>I investigate emotions, prosociality, & morality.</h1></span>
