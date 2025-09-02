@@ -128,4 +128,46 @@ document.addEventListener('DOMContentLoaded', function() {
     rqCards.forEach(card => card.classList.add('visible'));
   }
 
+  // === Character Video Hover Logic ===
+  const videoElement = document.getElementById('characterVideo');
+  if (videoElement) {
+    const neutralSrc = 'images/neutral.mp4';
+    const videos = [
+      'images/video1.mp4',
+      'images/video2.mp4',
+      'images/video3.mp4',
+      'images/video4.mp4',
+      'images/video5.mp4',
+      'images/video6.mp4',
+      'images/video7.mp4',
+      'images/video8.mp4',
+      'images/video9.mp4',
+      'images/video10.mp4'
+    ];
+    let isPlayingSpecial = false;
+
+    // Ensure neutral video is looping
+    videoElement.loop = true;
+    videoElement.src = neutralSrc;
+
+    videoElement.addEventListener('mouseenter', () => {
+      if (!isPlayingSpecial) {
+        // Pick random video, switch src, play it (no loop)
+        const randomIndex = Math.floor(Math.random() * videos.length);
+        videoElement.loop = false;
+        videoElement.src = videos[randomIndex];
+        videoElement.play();
+        isPlayingSpecial = true;
+      }
+    });
+
+    videoElement.addEventListener('ended', () => {
+      // When special video ends, revert to looping neutral
+      videoElement.loop = true;
+      videoElement.src = neutralSrc;
+      videoElement.play();
+      isPlayingSpecial = false;
+    });
+  }
+
 });
