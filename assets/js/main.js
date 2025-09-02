@@ -128,9 +128,9 @@ document.addEventListener('DOMContentLoaded', function() {
     rqCards.forEach(card => card.classList.add('visible'));
   }
 
-  // === Character Video Hover Logic ===
-  const videoElement = document.getElementById('characterVideo');
-  if (videoElement) {
+  // Character Video Hover Logic with Seamless Transition and Preload
+  document.addEventListener('DOMContentLoaded', function() {
+    const videoElement = document.getElementById('characterVideo');
     const neutralSrc = 'assets/images/neutral.mp4';
     const videos = [
       'assets/images/video1.mp4',
@@ -144,30 +144,44 @@ document.addEventListener('DOMContentLoaded', function() {
       'assets/images/video9.mp4',
       'assets/images/video10.mp4'
     ];
-    let isPlayingSpecial = false;
 
-    // Ensure neutral video is looping
+    let isPlayingSpecial = false;
+    
+    // Preload random videos (hidden)
+    videos.forEach(src => {
+      const preload = document.createElement('video');
+      preload.src = src;
+      preload.preload = 'auto';
+      preload.style.display = 'none';
+      document.body.appendChild(preload);
+    });
+    
+    // Ensure neutral video is looping and set as default
     videoElement.loop = true;
     videoElement.src = neutralSrc;
-
+    
     videoElement.addEventListener('mouseenter', () => {
       if (!isPlayingSpecial) {
-        // Pick random video, switch src, play it (no loop)
         const randomIndex = Math.floor(Math.random() * videos.length);
+        const randomVideo = videos[randomIndex];
         videoElement.loop = false;
-        videoElement.src = videos[randomIndex];
-        videoElement.play();
-        isPlayingSpecial = true;
+        
+        // Seamlessly transition: wait for canplay before starting special video
+        const onCanPlay = () => {
+          videoElement.play();
+          videoElement.removeEventListener('canplay', onCanPlay);
+          isPlayingSpecial = true;
+        };
+        videoElement.addEventListener('canplay', onCanPlay);
+        videoElement.src = randomVideo;
+        // Don't call play() until canplay!
       }
     });
-
+    
     videoElement.addEventListener('ended', () => {
-      // When special video ends, revert to looping neutral
       videoElement.loop = true;
       videoElement.src = neutralSrc;
       videoElement.play();
       isPlayingSpecial = false;
     });
-  }
-
 });
