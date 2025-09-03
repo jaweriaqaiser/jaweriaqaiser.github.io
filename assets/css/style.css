@@ -680,20 +680,22 @@ main {
 
 /* Portfolio video */
 .responsive-video {
-  flex: 1 1 46%;       /* Fill remaining space */
+  flex: 1 1 46%;
   min-width: 280px;
   max-width: 650px;
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
-  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  /* Remove: padding-bottom, height, position, overflow */
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
 }
 
 .responsive-video iframe {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
   border: 0;
+  display: block;
 }
 
 @media (max-width: 800px) {
@@ -704,5 +706,19 @@ main {
   .intro-text, .responsive-video {
     max-width: 100%;
     margin-left: 0;
+  }
+}
+
+@supports not (aspect-ratio: 16 / 9) {
+  .responsive-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  .responsive-video iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
   }
 }
