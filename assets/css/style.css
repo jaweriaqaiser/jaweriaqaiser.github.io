@@ -698,14 +698,29 @@ main {
   display: block;
 }
 
+.2024portfolio-image {
+  flex: 1 1 46%;
+  min-width: 260px;
+  max-width: 450px;
+  width: 100%;
+  height: 490px; /* Adjust as needed for your image */
+  background-image: url('../images/2024portfolio.jpg'); /* Change path as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+
 @media (max-width: 800px) {
-  .intro-inner {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .intro-text, .responsive-video {
+  .responsive-video {
     max-width: 100%;
     margin-left: 0;
+  }
+  .2024portfolio-image {
+    max-width: 300px;
+    min-width: 180px;
+    width: 100%;
+    height: 300px;
   }
 }
 
