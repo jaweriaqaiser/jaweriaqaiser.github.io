@@ -722,7 +722,7 @@ main {
 .portfolio-image {
   width: 100%;
   max-width: 450px;
-  aspect-ratio: 1280 / 720;
+  aspect-ratio: 1260 / 670;
   background-image: url('../images/2022portfolio.jpg');
   background-size: contain;
   background-position: center;
