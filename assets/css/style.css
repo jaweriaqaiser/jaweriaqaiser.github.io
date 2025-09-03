@@ -681,8 +681,8 @@ main {
 /* Portfolio video */
 .responsive-video {
   flex: 1 1 46%;
-  min-width: 280px;
-  max-width: 650px;
+  min-width: 220px;
+  max-width: 520px;
   aspect-ratio: 16 / 9;
   /* Remove: padding-bottom, height, position, overflow */
   display: flex;
