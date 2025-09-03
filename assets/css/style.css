@@ -722,7 +722,7 @@ main {
 .portfolio-image {
   width: 100%;
   max-width: 450px;
-  aspect-ratio: 1115 / 724;
+  aspect-ratio: 1891 / 951;
   background-image: url('../images/2024portfolio.jpg');
   background-size: contain;
   background-position: center;
@@ -737,3 +737,23 @@ main {
     /* No height! */
   }
 }
+
+.portfolio2-image {
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 1115 / 724;
+  background-image: url('../images/2024portfolio.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 900px) {
+  .portfolio2-image {
+    max-width: 300px;
+    min-width: 120px;
+    width: 100%;
+    /* No height! */
+  }
+}
+
