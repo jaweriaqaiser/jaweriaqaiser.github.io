@@ -685,6 +685,7 @@ main {
   height: 0;
   overflow: hidden;
   max-width: 100%;
+  flex: 1 1 0;
 }
 
 .responsive-video iframe {
