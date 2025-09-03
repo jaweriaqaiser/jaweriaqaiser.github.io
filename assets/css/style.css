@@ -609,7 +609,7 @@ main {
 .pub-btn {
   display: inline-block;
   padding: 0.4em 1em;
-  background: #4682b4;
+  background: #F1A638;
   color: #FFFFF4;
   border-radius: 4px;
   text-decoration: none;
@@ -619,7 +619,7 @@ main {
 
 .pub-btn:hover,
 .pub-btn:focus {
-  background: #315c7d;
+  background: #B3700D;
 }
 
 /* Header fonts */
