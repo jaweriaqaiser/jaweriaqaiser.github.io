@@ -698,19 +698,6 @@ main {
   display: block;
 }
 
-.2024portfolio-image {
-  flex: 1 1 46%;
-  min-width: 260px;
-  max-width: 450px;
-  width: 100%;
-  height: 490px; /* Adjust as needed for your image */
-  background-image: url('../images/2024portfolio.jpg'); /* Change path as needed */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 0;
-}
-
 @media (max-width: 800px) {
   .responsive-video {
     max-width: 100%;
