@@ -720,23 +720,20 @@ main {
 }
 
 .portfolio-image {
-  flex: 1 1 46%;
-  min-width: 260px;
-  max-width: 450px;
   width: 100%;
-  height: 490px; /* Adjust for your layout */
-  background-image: url('../images/2024portfolio.jpg'); /* Adjust path as needed */
-  background-size: cover;
+  max-width: 450px;
+  aspect-ratio: 4 / 5;
+  background-image: url('../images/2024portfolio.jpg');
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 0;
 }
 
 @media (max-width: 900px) {
   .portfolio-image {
     max-width: 300px;
-    min-width: 180px;
+    min-width: 120px;
     width: 100%;
-    height: 300px;
+    /* No height! */
   }
 }
