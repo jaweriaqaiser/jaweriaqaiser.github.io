@@ -679,14 +679,53 @@ main {
 }
 
 /* Portfolio video */
-.responsive-video {
-  flex: 1 1 46%;       /* Fill remaining space */
+.portfolio-section {
+  width: 100vw;
+  background: #FFFFF4;
+  box-sizing: border-box;
+  padding: 2rem 0;
+}
+
+.portfolio-inner {
+  display: flex;
+  flex-wrap: wrap;          /* Allow stacking on small screens */
+  align-items: flex-start;  /* Align text and video to the top */
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 3rem;
+  padding: 0 2vw;
+}
+
+.portfolio-text {
+  flex: 1 1 340px;
+  max-width: 540px;
   min-width: 280px;
-  max-width: 650px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.portfolio-video {
+  flex: 1 1 350px;
+  max-width: 600px;
+  min-width: 280px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.responsive-video {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;  /* 16:9 aspect ratio */
   height: 0;
+  width: 100%;
+  max-width: 600px;
   overflow: hidden;
+  background: #222;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
 }
 
 .responsive-video iframe {
@@ -694,15 +733,19 @@ main {
   top: 0; left: 0;
   width: 100%; height: 100%;
   border: 0;
+  border-radius: 12px;
 }
 
-@media (max-width: 800px) {
-  .intro-inner {
+/* Responsive stacking for mobile */
+@media (max-width: 900px) {
+  .portfolio-inner {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
+    align-items: stretch;
   }
-  .intro-text, .responsive-video {
+  .portfolio-video, .portfolio-text {
     max-width: 100%;
-    margin-left: 0;
+    min-width: 0;
+    margin: 0;
   }
 }
