@@ -185,4 +185,17 @@ document.addEventListener('DOMContentLoaded', function() {
       isPlayingSpecial = false;
     });
   }
+
+  // === Popup Arrow for Hover Instruction ===
+  const characterVideo = document.getElementById('characterVideo');
+  const hoverPopup = document.getElementById('hover-popup');
+  if (characterVideo && hoverPopup) {
+    characterVideo.addEventListener('mouseenter', function() {
+      hoverPopup.style.display = 'none';
+    });
+    // Optional: Show the popup again on mouseleave if desired
+    // characterVideo.addEventListener('mouseleave', function() {
+    //   hoverPopup.style.display = 'flex';
+    // });
+  }
 });
