@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Section reveal animation (unchanged)
+  
+  // Section reveal animation
   const sections = document.querySelectorAll('.section');
   if ('IntersectionObserver' in window) {
     const revealObserver = new window.IntersectionObserver((entries, observer) => {
@@ -184,18 +185,5 @@ document.addEventListener('DOMContentLoaded', function() {
       videoElement.play();
       isPlayingSpecial = false;
     });
-  }
-
-  // === Popup Arrow for Hover Instruction ===
-  const characterVideo = document.getElementById('characterVideo');
-  const hoverPopup = document.getElementById('hover-popup');
-  if (characterVideo && hoverPopup) {
-    characterVideo.addEventListener('mouseenter', function() {
-      hoverPopup.style.display = 'none';
-    });
-    // Optional: Show the popup again on mouseleave if desired
-    // characterVideo.addEventListener('mouseleave', function() {
-    //   hoverPopup.style.display = 'flex';
-    // });
   }
 });
