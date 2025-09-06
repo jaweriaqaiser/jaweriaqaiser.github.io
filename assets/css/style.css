@@ -387,7 +387,7 @@ a:hover { text-decoration: underline; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: left;
+  text-align: center; /* Center ALL text in card */
   border-radius: 40px;
 
   /* Animation initial state */
@@ -408,12 +408,20 @@ a:hover { text-decoration: underline; }
   color: #d9a10c;
 }
 
-.rq-card h3 {
+.rq-card h1.title {
   color: #b8860b;
-  font-size: 1.6rem;
+  font-size: 1.3rem;    /* Smaller title */
   font-family: 'Merriweather', 'Georgia', serif;
   font-weight: bold;
-  margin: 0 0 1rem 0;
+  margin: 1rem 0 0.6rem 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.rq-card p {
+  font-size: 1rem;      /* Smaller paragraph */
+  line-height: 1.5;
+  margin: 0;
   text-align: center;
 }
 
@@ -423,6 +431,7 @@ a:hover { text-decoration: underline; }
   font-size: 1.1rem;
   color: #222;
   list-style-type: disc;
+  text-align: left;
 }
 
 .rq-card ul li {
