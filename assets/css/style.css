@@ -419,7 +419,7 @@ a:hover { text-decoration: underline; }
 }
 
 .rq-card p {
-  font-size: 1rem;      /* Smaller paragraph */
+  font-size: 0.5rem;      /* Smaller paragraph */
   line-height: 1.5;
   margin: 0;
   text-align: center;
