@@ -359,7 +359,7 @@ a:hover { text-decoration: underline; }
 /* Research Questions */
 
 .research-questions-section {
-  background: url('../images/research-bg.jpg') center center/cover no-repeat;
+  background: none;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
