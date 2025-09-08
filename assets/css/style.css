@@ -358,28 +358,9 @@ a:hover { text-decoration: underline; }
 
 /* Research Questions */
 
-.research-questions-section {
-  background: none;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;      /* Centers content vertically */
-  align-items: center;          /* Centers content horizontally */
-}
-
-.research-questions-inner {
-  display: flex;
-  gap: 2.2rem;
-  justify-content: center;
-  align-items: flex-start;
-  max-width: 1300px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-
 .rq-card {
   background: #FFFFF4;
-  box-shadow: 0 6px 36px 0 rgba(154, 110, 0, 0.09);
+  box-shadow: 0 8px 32px 0 rgba(154, 110, 0, 0.18), 0 2px 8px 0 rgba(60, 60, 60, 0.08);
   padding: 2.7rem 2.1rem 2.1rem 2.1rem;
   width: 350px;
   min-height: 560px;
@@ -387,9 +368,8 @@ a:hover { text-decoration: underline; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center; /* Center ALL text in card */
+  text-align: center;
   border-radius: 40px;
-
   /* Animation initial state */
   opacity: 0;
   transform: translateY(60px);
@@ -402,15 +382,27 @@ a:hover { text-decoration: underline; }
 }
 
 .rq-icon {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 0.8rem;
-  color: #d9a10c;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 1 auto; /* Allow icon to grow */
+  margin-bottom: 1.2rem;
+}
+
+.rq-icon img {
+  display: block;
+  max-width: 160px;  /* Adjust as needed for size */
+  max-height: 160px; /* Adjust as needed for size */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
 }
 
 .rq-card h1.title {
   color: #b8860b;
-  font-size: 1.3rem;    /* Smaller title */
+  font-size: 1.3rem;
   font-family: 'Merriweather', 'Georgia', serif;
   font-weight: bold;
   margin: 1rem 0 0.6rem 0;
@@ -419,9 +411,10 @@ a:hover { text-decoration: underline; }
 }
 
 .rq-card p {
-  font-size: 0.9rem;      /* Smaller paragraph */
+  font-size: 0.9rem;
   line-height: 1.5;
   margin: 0;
+  margin-top: auto; /* Pushes the paragraph to the bottom */
   text-align: center;
 }
 
