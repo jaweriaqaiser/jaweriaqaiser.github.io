@@ -412,8 +412,7 @@ a:hover { text-decoration: underline; }
 
 .rq-icon img {
   display: block;
-  max-width: 150px;   /* adjust as needed */
-  max-height: 150px;  /* adjust as needed */
+  max-width: 100%;  /* Prevents overflow */
   width: 100%;
   height: auto;
   object-fit: contain;
