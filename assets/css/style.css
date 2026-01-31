@@ -344,7 +344,7 @@ a:hover { text-decoration: underline; }
 @media (max-width: 900px) {
   .intro-inner {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.5rem;
     /* max-width: 95vw; */
   }
   .intro-text {
