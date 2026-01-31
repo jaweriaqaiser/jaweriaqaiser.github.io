@@ -339,6 +339,21 @@ a:hover { text-decoration: underline; }
   margin: 0;
 }
 
+/*Portfolio image */
+
+.portfolio-image {
+  flex: 1 1 46%;
+  min-width: 325px;
+  max-width: 450px;
+  width: 100%;
+  height: 490px; /* Adjust as needed for your image */
+  background-image: url('../images/art.jpg'); /* Change path as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+
 /* Intro image, character video, teaching image, and portfolio image mobile friendliness */
 
 @media (max-width: 900px) {
@@ -352,6 +367,7 @@ a:hover { text-decoration: underline; }
   }
   .intro-image,
   .teaching-image,
+  .portfolio-image,
   .intro-video {
     display: none !important;
   }
