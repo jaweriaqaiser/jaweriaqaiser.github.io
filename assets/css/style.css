@@ -343,8 +343,8 @@ a:hover { text-decoration: underline; }
 
 .art-image {
   flex: 1 1 46%;
-  min-width: 325px;
-  max-width: 325px;
+  min-width: 300px;
+  max-width: 300px;
   width: 100%;
   height: 400px; /* Adjust as needed for your image */
   background-image: url('../images/art.jpg'); /* Change path as needed */
