@@ -301,8 +301,7 @@ a:hover { text-decoration: underline; }
   min-width: 260px;
   max-width: 450px;
   width: 100%;
-  /* height: 490px; /* Adjust as needed for your image */
-  aspect-ratio: 3 / 4; /* portrait-friendly */
+  height: 490px; /* Adjust as needed for your image */
   background-image: url('../images/intro-image.jpg'); /* Change path as needed */
   background-size: cover;
   background-position: center;
