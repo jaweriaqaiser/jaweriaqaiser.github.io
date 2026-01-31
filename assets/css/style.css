@@ -346,7 +346,7 @@ a:hover { text-decoration: underline; }
   min-width: 350px;
   max-width: 350px;
   width: 100%;
-  height: 380px; /* Adjust as needed for your image */
+  height: 400px; /* Adjust as needed for your image */
   background-image: url('../images/art.jpg'); /* Change path as needed */
   background-size: cover;
   background-position: center;
@@ -358,7 +358,7 @@ a:hover { text-decoration: underline; }
 
 @media (max-width: 900px) {
   .intro-section {
-  padding-top: 1rem;
+  padding-top: 0.5rem;
   padding-bottom: 0rem;
   }
   .intro-inner {
