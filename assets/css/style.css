@@ -343,8 +343,8 @@ a:hover { text-decoration: underline; }
 
 .art-image {
   flex: 1 1 46%;
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 350px;
+  max-width: 350px;
   width: 100%;
   height: 400px; /* Adjust as needed for your image */
   background-image: url('../images/art.jpg'); /* Change path as needed */
@@ -357,9 +357,13 @@ a:hover { text-decoration: underline; }
 /* Intro image, character video, teaching image, and art image mobile friendliness */
 
 @media (max-width: 900px) {
+  .intro-section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  }
   .intro-inner {
     flex-direction: column;
-    gap: 0 rem;
+    gap: 0.5 rem;
     /* max-width: 95vw; */
   }
   .intro-text {
