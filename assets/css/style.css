@@ -324,11 +324,16 @@ a:hover { text-decoration: underline; }
   box-shadow: 0 2px 10px rgba(0,0,0,0.07);
 }
 
+/* =========================
+   CHARACTER HOVER HINT
+   ========================= */
+
 .character-wrapper {
   position: relative;
   display: inline-block;
 }
 
+/* Default: hidden, no animation */
 .hover-hint {
   position: absolute;
   bottom: -2.2rem;
@@ -336,28 +341,70 @@ a:hover { text-decoration: underline; }
   transform: translateX(-50%);
   font-family: "Inter", sans-serif;
   font-size: 0.85rem;
-  color: rgba(31,31,31,0.65);
-  background: rgba(255,255,255,0.85);
+  color: rgba(31, 31, 31, 0.65);
+  background: rgba(255, 255, 255, 0.85);
   padding: 0.35rem 0.6rem;
   border-radius: 999px;
   white-space: nowrap;
   pointer-events: none;
 
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-/* Hide after interaction */
-.character-wrapper:hover .hover-hint {
   opacity: 0;
 }
 
-/* Hide on mobile (no hover) */
+/* Trigger animation ONLY when section scrolls into view */
+.intro-section.visible .character-wrapper .hover-hint {
+  animation:
+    hintFadeIn 0.6s ease forwards,
+    hintPulse 1.2s ease forwards;
+  animation-delay:
+    1s,    /* fade in after 1s */
+    1.6s;  /* pulse once after fade */
+}
+
+/* Fade in */
+@keyframes hintFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Single subtle pulse */
+@keyframes hintPulse {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.03);
+    opacity: 0.92;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Hide once user hovers */
+.character-wrapper:hover .hover-hint {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Disable on mobile (no hover) */
 @media (max-width: 900px) {
   .hover-hint {
     display: none;
   }
 }
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .intro-section.visible .character-wrapper .hover-hint {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+
 
 /*Teaching image */
 
