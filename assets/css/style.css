@@ -339,9 +339,9 @@ a:hover { text-decoration: underline; }
   margin: 0;
 }
 
-/*Portfolio image */
+/*Art image */
 
-.portfolio-image {
+.art-image {
   flex: 1 1 46%;
   min-width: 325px;
   max-width: 450px;
@@ -354,7 +354,7 @@ a:hover { text-decoration: underline; }
   margin: 0;
 }
 
-/* Intro image, character video, teaching image, and portfolio image mobile friendliness */
+/* Intro image, character video, teaching image, and art image mobile friendliness */
 
 @media (max-width: 900px) {
   .intro-inner {
@@ -367,7 +367,7 @@ a:hover { text-decoration: underline; }
   }
   .intro-image,
   .teaching-image,
-  .portfolio-image,
+  .art-image,
   .intro-video {
     display: none !important;
   }
