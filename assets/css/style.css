@@ -347,11 +347,6 @@ a:hover { text-decoration: underline; }
   transition: opacity 0.3s ease;
 }
 
-/* Hide after interaction */
-.character-wrapper:hover .hover-hint {
-  opacity: 0;
-}
-
 /* Hide on mobile (no hover) */
 @media (max-width: 900px) {
   .hover-hint {
