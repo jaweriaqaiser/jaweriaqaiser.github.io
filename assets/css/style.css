@@ -710,4 +710,8 @@ main {
     width: 100%;
     /* No height! */
   }
+
+  .intro-inner > .media { order: 1; }
+  .intro-inner > .intro-text { order: 2; }
+
 }
