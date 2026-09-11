@@ -722,6 +722,16 @@ main {
   background-repeat: no-repeat;
 }
 
+.portfolio4-image {
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 1115 / 724;
+  background-image: url('../images/2026portfolio.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 @media (max-width: 900px) {
   .portfolio-image {
     max-width: 300px;
